@@ -1,3 +1,10 @@
 `r if (knitr::is_html_output()) '
 # References {-}
 '`
+
+The references for a bookdown or rmarkdown file can be included using the following information in the yml header of the index file.
+
+```
+
+```
+## Manual references

@@ -1,4 +1,7 @@
-about
+biol8700_setup_2022
+results
+rstudio-project-file
 usage
 render-book
 preview-book
+manual-references
