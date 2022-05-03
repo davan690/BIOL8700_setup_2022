@@ -36,7 +36,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={A Minimal Book Example for BIOL8700},
+  pdftitle={Applications of R for research},
   pdfauthor={Anthony Davidson},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
@@ -115,7 +115,7 @@
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
 
-\title{A Minimal Book Example for BIOL8700}
+\title{Applications of R for research}
 \author{Anthony Davidson}
 \date{2022-05-03}
 
@@ -196,6 +196,76 @@ As you work, you may start a local server to live preview this HTML book. This p
 \NormalTok{bookdown}\SpecialCharTok{::}\FunctionTok{serve\_book}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
+
+This week we are going to set up our projects ready for Terry Newmans sample/survey design session next week.
+
+This will involve:
+
+\hypertarget{rmarkdown-reports}{%
+\section{RMarkdown reports}\label{rmarkdown-reports}}
+
+We shouls all know what these are and how to render a report in RMarkdown. This week we will produce a Rmarkdown report for your question ready to add data and other sampling design using a simple word, html or pdf template.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(rmarkdown)}
+\FunctionTok{library}\NormalTok{(rticles)}
+\FunctionTok{library}\NormalTok{(bookdown)}
+\FunctionTok{library}\NormalTok{(bookdownplus)}
+\end{Highlighting}
+\end{Shaded}
+
+What does this tell us about how RProjects and other funky things work?
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Data import
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\CommentTok{\#\textgreater{} {-}{-} Attaching packages {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-} tidyverse 1.3.1 {-}{-}}
+\CommentTok{\#\textgreater{} v ggplot2 3.3.5     v purrr   0.3.4}
+\CommentTok{\#\textgreater{} v tibble  3.1.6     v dplyr   1.0.8}
+\CommentTok{\#\textgreater{} v tidyr   1.2.0     v stringr 1.4.0}
+\CommentTok{\#\textgreater{} v readr   2.1.2     v forcats 0.5.1}
+\CommentTok{\#\textgreater{} {-}{-} Conflicts {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-} tidyverse\_conflicts() {-}{-}}
+\CommentTok{\#\textgreater{} x dplyr::filter() masks stats::filter()}
+\CommentTok{\#\textgreater{} x dplyr::lag()    masks stats::lag()}
+\FunctionTok{library}\NormalTok{(readxl)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\item
+  Data visualisation
+\item
+  Tidyverse approach
+\item
+  ggplot
+\end{enumerate}
+
+Tasks ready for next week:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Outcome and predictor variables
+\item
+  Other studies with same sampling design
+\item
+  Other reference material.
+\item
+  Read a cool sampling design/issue paper
+\end{enumerate}
+
+Watch this short (ish video) as a summary of what you should understand so far.
 
 The references for a bookdown or rmarkdown file can be included using the following information in the yml header of the index file.
 

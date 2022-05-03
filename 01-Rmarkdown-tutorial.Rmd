@@ -1,0 +1,54 @@
+---
+title: "Applications of R for research"
+---
+
+
+This week we are going to set up our projects ready for Terry Newmans sample/survey design session next week.
+
+This will involve:
+
+## RMarkdown reports
+
+We shouls all know what these are and how to render a report in RMarkdown. This week we will produce a Rmarkdown report for your question ready to add data and other sampling design using a simple word, html or pdf template.
+
+```{r}
+library(rmarkdown)
+library(rticles)
+library(bookdown)
+library(bookdownplus)
+```
+
+What does this tell us about how RProjects and other funky things work?
+
+3. Data import
+
+```{r}
+library(tidyverse)
+library(readxl)
+```
+
+
+
+4. Data visualisation
+
+
+
+5. Tidyverse approach
+
+
+
+6.    ggplot
+
+Tasks ready for next week:
+
+1. Outcome and predictor variables
+
+
+
+3. Other studies with same sampling design
+
+5. Other reference material.
+
+7. Read a cool sampling design/issue paper
+
+Watch this short (ish video) as a summary of what you should understand so far.
