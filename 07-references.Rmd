@@ -2,6 +2,7 @@
 # References {-}
 '`
 
+<<<<<<< HEAD
 
 
 One aspect that can be challenging when working with RMarkdown documents for manuscripts is references.
@@ -15,10 +16,14 @@ knitr::write_bib(c(
 
 
 The references for a bookdown or rmarkdown file can be included using the following information in the `yml` header of the index file.
+=======
+The references for a bookdown or rmarkdown file can be included using the following information in the yml header of the index file.
+>>>>>>> 510fa76071516ff9e7d07d6fd95903e68f94d19c
 
 ```
 
 ```
+<<<<<<< HEAD
 
 
 ## Manual references
@@ -32,3 +37,6 @@ The references for a bookdown or rmarkdown file can be included using the follow
 
 ```
 
+=======
+## Manual references
+>>>>>>> 510fa76071516ff9e7d07d6fd95903e68f94d19c
