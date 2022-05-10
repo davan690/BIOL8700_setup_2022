@@ -9,7 +9,6 @@ description: A starting point for bookdown
 link-citations: yes
 site: bookdown::bookdown_site
 documentclass: book
-lastmod: 2022-05-10T01:50:17.508Z
 ---
 
 ```{r child = "README/README.Rmd"}

@@ -1,7 +1,9 @@
 ---
 title: "Experimental plan"
-author: "Rachael Remmington"
+author: "Rachael Remmington; Anthony Davidson"
 ---
+
+# Experimental plan template
 
 Now that you have been developing a research question over the last few months, the next step is to design a set of experiments that will specifically test your research aims.
 

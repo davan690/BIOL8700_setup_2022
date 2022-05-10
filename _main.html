@@ -9,11 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Rachael Remmington" />
+<meta name="author" content="Rachael Remmington; Anthony Davidson" />
 
 <meta name="date" content="2022-05-10" />
 
-<title>Applications of R for research</title>
+<title>Data reporting in RMarkdown.</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -398,8 +398,9 @@ pre code {
 
 
 
-<h1 class="title toc-ignore">Applications of R for research</h1>
-<h4 class="author">Rachael Remmington</h4>
+<h1 class="title toc-ignore">Data reporting in RMarkdown.</h1>
+<h3 class="subtitle">A quick demo</h3>
+<h4 class="author">Rachael Remmington; Anthony Davidson</h4>
 <h4 class="date">2022-05-10</h4>
 
 </div>
@@ -412,13 +413,6 @@ pre code {
 <!-- badges: end -->
 <p>The goal of BIOL8700_setup_2022 is to setup and generate documents
 using RStudio, RMarkdown and github</p>
-<p>What is special about using <code>README.Rmd</code> instead of just
-<code>README.md</code>? You can include R chunks like so:</p>
-<p>You’ll still need to render <code>README.Rmd</code> regularly, to
-keep <code>README.md</code> up-to-date.
-<code>devtools::build_readme()</code> is handy for this. You could also
-use GitHub Actions to re-render <code>README.Rmd</code> every time you
-push. An example workflow can be found here: <a href="https://github.com/r-lib/actions/tree/v1/examples" class="uri">https://github.com/r-lib/actions/tree/v1/examples</a>.</p>
 <div id="tools" class="section level2">
 <h2>Tools</h2>
 <p>This is a <em>sample</em> book written in <strong>Markdown</strong>
@@ -445,6 +439,46 @@ files, so they display on GitHub.</p>
 <li><a href="https://r4ds.had.co.nz/workflow-projects.html" class="uri">https://r4ds.had.co.nz/workflow-projects.html</a></li>
 </ul>
 <!--chapter:end:index.Rmd-->
+<p>Last week we began to set up our projects using RMarkdown and R code
+so that we are ready for Terry Newmans sample/survey design session. Now
+this is postponed till next week we can finish this off. This week will
+continue as follows:</p>
+<ol style="list-style-type: decimal">
+<li>Run the R chunk below and check that you have all the packages
+running from last week</li>
+</ol>
+<pre class="r"><code>library(rmarkdown)
+library(rticles)
+library(bookdown)
+library(bookdownplus)
+library(tidyverse)
+#&gt; -- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+#&gt; v ggplot2 3.3.5     v purrr   0.3.4
+#&gt; v tibble  3.1.6     v dplyr   1.0.8
+#&gt; v tidyr   1.2.0     v stringr 1.4.0
+#&gt; v readr   2.1.2     v forcats 0.5.1
+#&gt; -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+#&gt; x dplyr::filter() masks stats::filter()
+#&gt; x dplyr::lag()    masks stats::lag()
+library(readxl)</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Can you import the dataset you found last week in class?</li>
+</ol>
+<pre class="r"><code>#read.csv
+#read.xl</code></pre>
+<ul>
+<li>What options did we have?</li>
+<li>Here I will take the following dataset and extend this to include
+some code and plots for the data</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Follow along with the next chapter….</li>
+</ol>
+<!--chapter:end:01-Rmarkdown-tutorial.Rmd-->
+</div>
+</div>
+<div id="experimental-plan-template" class="section level1">
+<h1>Experimental plan template</h1>
 <p>Now that you have been developing a research question over the last
 few months, the next step is to design a set of experiments that will
 specifically test your research aims.</p>
@@ -476,7 +510,6 @@ replicates will be tested?)</li>
 <p>You can access the template for the experimental plan on Wattle or a
 copy can be found within this repository. <a href="%223.%20Statistical%20Methods%20in%20Biology%20-%20Chapter%203.pdf%22">DOWNLOAD
 NOW</a>. The template is laid out below as follows:</p>
-</div>
 <div id="research-questions" class="section level2">
 <h2>Research Question(s)?</h2>
 <pre class="r"><code>#input question here</code></pre>
@@ -514,37 +547,19 @@ numbers, and controls.</p>
 </div>
 <div id="reporting" class="section level2">
 <h2>Reporting</h2>
-<!--chapter:end:01-experiment_template.Rmd-->
-<p>This week we are going to set up our projects ready for Terry Newmans
-sample/survey design session next week.</p>
-<p>This will involve:</p>
+<!--chapter:end:02-experiment_template.Rmd-->
 </div>
-<div id="rmarkdown-reports" class="section level2">
-<h2>RMarkdown reports</h2>
-<p>We shouls all know what these are and how to render a report in
+</div>
+<div id="rmarkdown-reports" class="section level1">
+<h1>RMarkdown reports</h1>
+<p>We should all know what these are and how to render a report in
 RMarkdown. This week we will produce a Rmarkdown report for your
 question ready to add data and other sampling design using a simple
 word, html or pdf template.</p>
-<pre class="r"><code>library(rmarkdown)
-library(rticles)
-library(bookdown)
-library(bookdownplus)</code></pre>
 <p>What does this tell us about how RProjects and other funky things
 work?</p>
 <ol start="3" style="list-style-type: decimal">
-<li>Data import</li>
-</ol>
-<pre class="r"><code>library(tidyverse)
-#&gt; -- Attaching packages --------------------------------------- tidyverse 1.3.1 --
-#&gt; v ggplot2 3.3.5     v purrr   0.3.4
-#&gt; v tibble  3.1.6     v dplyr   1.0.8
-#&gt; v tidyr   1.2.0     v stringr 1.4.0
-#&gt; v readr   2.1.2     v forcats 0.5.1
-#&gt; -- Conflicts ------------------------------------------ tidyverse_conflicts() --
-#&gt; x dplyr::filter() masks stats::filter()
-#&gt; x dplyr::lag()    masks stats::lag()
-library(readxl)</code></pre>
-<ol start="4" style="list-style-type: decimal">
+<li><p>Data import</p></li>
 <li><p>Data visualisation</p></li>
 <li><p>Tidyverse approach</p></li>
 <li><p>ggplot</p></li>
@@ -558,7 +573,17 @@ library(readxl)</code></pre>
 </ol>
 <p>Watch this short (ish video) as a summary of what you should
 understand so far.</p>
-<!--chapter:end:01-Rmarkdown-tutorial.Rmd-->
+<div id="automation" class="section level2">
+<h2>Automation</h2>
+<p>What is special about using <code>README.Rmd</code> instead of just
+<code>README.md</code>?</p>
+<p>You can include R chunks like so:</p>
+<p>You’ll still need to render <code>README.Rmd</code> regularly, to
+keep <code>README.md</code> up-to-date.
+<code>devtools::build_readme()</code> is handy for this. You could also
+use GitHub Actions to re-render <code>README.Rmd</code> every time you
+push. An example workflow can be found here: <a href="https://github.com/r-lib/actions/tree/v1/examples" class="uri">https://github.com/r-lib/actions/tree/v1/examples</a>.</p>
+<!--chapter:end:03-experiment_code_setup.Rmd-->
 </div>
 </div>
 <div id="references" class="section level1 unnumbered">
@@ -575,10 +600,66 @@ using the following information in the yml header of the index file.</p>
 </div>
 <div id="packages" class="section level2">
 <h2>Packages</h2>
-</div>
-<div id="manual-references-1" class="section level2">
-<h2>Manual references</h2>
 <!--chapter:end:07-references.Rmd-->
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- # BIOL877_setup_2022 -->
+<!-- badges: start -->
+<!-- badges: end -->
+<p>The goal of BIOL877_setup_2022 repository here is to provide a
+starting point for using RMarkdown and RStudio to undertake
+research.</p>
+</div>
+<div id="download-project-and-files" class="section level2">
+<h2>Download project and files</h2>
+<p>We checked and loaded an RMarkdown</p>
+<p>This is a <em>sample</em> book written in <strong>Markdown</strong>
+and extended from the original RMD file. You can use anything that
+Pandoc’s Markdown supports; for example, a math equation <span class="math inline">\(a^2 + b^2 = c^2\)</span>.</p>
+</div>
+<div id="usage" class="section level2">
+<h2>Usage</h2>
+<p>Each <strong>bookdown</strong> chapter is an .Rmd file, and each .Rmd
+file can contain one (and only one) chapter. A chapter <em>must</em>
+start with a first-level heading: <code># A good chapter</code>, and can
+contain one (and only one) first-level heading.</p>
+<p>Use second-level and higher headings within chapters like:
+<code>## A short section</code> or
+<code>### An even shorter section</code>.</p>
+<p>The <code>index.Rmd</code> file is required, and is also your first
+book chapter. It will be the homepage when you render the book.</p>
+</div>
+<div id="render-book" class="section level2">
+<h2>Render book</h2>
+<p>You can render the HTML version of this example book without changing
+anything:</p>
+<ol style="list-style-type: decimal">
+<li><p>Find the <strong>Build</strong> pane in the RStudio IDE,
+and</p></li>
+<li><p>Click on <strong>Build Book</strong>, then select your output
+format, or select “All formats” if you’d like to use multiple formats
+from the same book source files.</p></li>
+</ol>
+<p>Or build the book from the R console:</p>
+<pre class="r"><code>bookdown::render_book()</code></pre>
+<p>To render this example to PDF as a <code>bookdown::pdf_book</code>,
+you’ll need to install XeLaTeX. You are recommended to install TinyTeX
+(which includes XeLaTeX): <a href="https://yihui.org/tinytex/" class="uri">https://yihui.org/tinytex/</a>.</p>
+</div>
+<div id="preview-book" class="section level2">
+<h2>Preview book</h2>
+<p>As you work, you may start a local server to live preview this HTML
+book. This preview will update as you edit the book when you save
+individual .Rmd files. You can start the server in a work session by
+using the RStudio add-in “Preview book”, or from the R console:</p>
+<pre class="r"><code>bookdown::serve_book()</code></pre>
+</div>
+<div id="output-files" class="section level2">
+<h2>Output files</h2>
+<p>One of the benefits of working in RMarkdown is that the ‘gitbook’
+extension is that it can easily be hosted on github. To do this with the
+least hurdles is to publish the output files as a github pages site from
+the <code>.docs/</code>.</p>
+<!--chapter:end:README.Rmd-->
 </div>
 </div>
 

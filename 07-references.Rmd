@@ -16,6 +16,7 @@ The references for a bookdown or rmarkdown file can be included using the follow
 ```
 
 ```
+
 ## Manual references
 
 
@@ -24,5 +25,3 @@ The references for a bookdown or rmarkdown file can be included using the follow
 ```{r}
 
 ```
-
-## Manual references

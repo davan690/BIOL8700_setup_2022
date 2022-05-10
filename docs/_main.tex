@@ -36,8 +36,8 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={Applications of R for research},
-  pdfauthor={Rachael Remmington},
+  pdftitle={Data reporting in RMarkdown.},
+  pdfauthor={Rachael Remmington; Anthony Davidson},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
@@ -115,8 +115,15 @@
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
 
-\title{Applications of R for research}
-\author{Rachael Remmington}
+\title{Data reporting in RMarkdown.}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{A quick demo}
+\author{Rachael Remmington; Anthony Davidson}
 \date{2022-05-10}
 
 \begin{document}
@@ -130,10 +137,6 @@
 \chapter{BIOL8700\_setup\_2022}\label{biol8700_setup_2022}}
 
 The goal of BIOL8700\_setup\_2022 is to setup and generate documents using RStudio, RMarkdown and github
-
-What is special about using \texttt{README.Rmd} instead of just \texttt{README.md}? You can include R chunks like so:
-
-You'll still need to render \texttt{README.Rmd} regularly, to keep \texttt{README.md} up-to-date. \texttt{devtools::build\_readme()} is handy for this. You could also use GitHub Actions to re-render \texttt{README.Rmd} every time you push. An example workflow can be found here: \url{https://github.com/r-lib/actions/tree/v1/examples}.
 
 \hypertarget{tools}{%
 \section{Tools}\label{tools}}
@@ -160,6 +163,68 @@ In that case, don't forget to commit and push the resulting figure files, so the
 \item
   \url{https://r4ds.had.co.nz/workflow-projects.html}
 \end{itemize}
+
+Last week we began to set up our projects using RMarkdown and R code so that we are ready for Terry Newmans sample/survey design session. Now this is postponed till next week we can finish this off. This week will continue as follows:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Run the R chunk below and check that you have all the packages running from last week
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(rmarkdown)}
+\FunctionTok{library}\NormalTok{(rticles)}
+\FunctionTok{library}\NormalTok{(bookdown)}
+\FunctionTok{library}\NormalTok{(bookdownplus)}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\CommentTok{\#\textgreater{} {-}{-} Attaching packages {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-} tidyverse 1.3.1 {-}{-}}
+\CommentTok{\#\textgreater{} v ggplot2 3.3.5     v purrr   0.3.4}
+\CommentTok{\#\textgreater{} v tibble  3.1.6     v dplyr   1.0.8}
+\CommentTok{\#\textgreater{} v tidyr   1.2.0     v stringr 1.4.0}
+\CommentTok{\#\textgreater{} v readr   2.1.2     v forcats 0.5.1}
+\CommentTok{\#\textgreater{} {-}{-} Conflicts {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-} tidyverse\_conflicts() {-}{-}}
+\CommentTok{\#\textgreater{} x dplyr::filter() masks stats::filter()}
+\CommentTok{\#\textgreater{} x dplyr::lag()    masks stats::lag()}
+\FunctionTok{library}\NormalTok{(readxl)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Can you import the dataset you found last week in class?
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#read.csv}
+\CommentTok{\#read.xl}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  What options did we have?
+\item
+  Here I will take the following dataset and extend this to include some code and plots for the data
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Follow along with the next chapter\ldots.
+\end{enumerate}
+
+\hypertarget{experimental-plan-template}{%
+\chapter{Experimental plan template}\label{experimental-plan-template}}
 
 Now that you have been developing a research question over the last few months, the next step is to design a set of experiments that will specifically test your research aims.
 
@@ -225,52 +290,18 @@ TIP: Start thinking about how you will analyse your data:\\
 \hypertarget{reporting}{%
 \section{Reporting}\label{reporting}}
 
-This week we are going to set up our projects ready for Terry Newmans sample/survey design session next week.
-
-This will involve:
-
 \hypertarget{rmarkdown-reports}{%
-\section{RMarkdown reports}\label{rmarkdown-reports}}
+\chapter{RMarkdown reports}\label{rmarkdown-reports}}
 
-We shouls all know what these are and how to render a report in RMarkdown. This week we will produce a Rmarkdown report for your question ready to add data and other sampling design using a simple word, html or pdf template.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(rmarkdown)}
-\FunctionTok{library}\NormalTok{(rticles)}
-\FunctionTok{library}\NormalTok{(bookdown)}
-\FunctionTok{library}\NormalTok{(bookdownplus)}
-\end{Highlighting}
-\end{Shaded}
+We should all know what these are and how to render a report in RMarkdown. This week we will produce a Rmarkdown report for your question ready to add data and other sampling design using a simple word, html or pdf template.
 
 What does this tell us about how RProjects and other funky things work?
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{2}
-\tightlist
 \item
   Data import
-\end{enumerate}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(tidyverse)}
-\CommentTok{\#\textgreater{} {-}{-} Attaching packages {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-} tidyverse 1.3.1 {-}{-}}
-\CommentTok{\#\textgreater{} v ggplot2 3.3.5     v purrr   0.3.4}
-\CommentTok{\#\textgreater{} v tibble  3.1.6     v dplyr   1.0.8}
-\CommentTok{\#\textgreater{} v tidyr   1.2.0     v stringr 1.4.0}
-\CommentTok{\#\textgreater{} v readr   2.1.2     v forcats 0.5.1}
-\CommentTok{\#\textgreater{} {-}{-} Conflicts {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-} tidyverse\_conflicts() {-}{-}}
-\CommentTok{\#\textgreater{} x dplyr::filter() masks stats::filter()}
-\CommentTok{\#\textgreater{} x dplyr::lag()    masks stats::lag()}
-\FunctionTok{library}\NormalTok{(readxl)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{3}
 \item
   Data visualisation
 \item
@@ -295,6 +326,15 @@ Tasks ready for next week:
 
 Watch this short (ish video) as a summary of what you should understand so far.
 
+\hypertarget{automation}{%
+\section{Automation}\label{automation}}
+
+What is special about using \texttt{README.Rmd} instead of just \texttt{README.md}?
+
+You can include R chunks like so:
+
+You'll still need to render \texttt{README.Rmd} regularly, to keep \texttt{README.md} up-to-date. \texttt{devtools::build\_readme()} is handy for this. You could also use GitHub Actions to re-render \texttt{README.Rmd} every time you push. An example workflow can be found here: \url{https://github.com/r-lib/actions/tree/v1/examples}.
+
 One aspect that can be challenging when working with RMarkdown documents for manuscripts is references.
 
 The references for a bookdown or rmarkdown file can be included using the following information in the \texttt{yml} header of the index file.
@@ -309,8 +349,62 @@ The references for a bookdown or rmarkdown file can be included using the follow
 \hypertarget{packages}{%
 \section{Packages}\label{packages}}
 
-\hypertarget{manual-references-1}{%
-\section{Manual references}\label{manual-references-1}}
+The goal of BIOL877\_setup\_2022 repository here is to provide a starting point for using RMarkdown and RStudio to undertake research.
+
+\hypertarget{download-project-and-files}{%
+\section{Download project and files}\label{download-project-and-files}}
+
+We checked and loaded an RMarkdown
+
+This is a \emph{sample} book written in \textbf{Markdown} and extended from the original RMD file. You can use anything that Pandoc's Markdown supports; for example, a math equation \(a^2 + b^2 = c^2\).
+
+\hypertarget{usage}{%
+\section{Usage}\label{usage}}
+
+Each \textbf{bookdown} chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter \emph{must} start with a first-level heading: \texttt{\#\ A\ good\ chapter}, and can contain one (and only one) first-level heading.
+
+Use second-level and higher headings within chapters like: \texttt{\#\#\ A\ short\ section} or \texttt{\#\#\#\ An\ even\ shorter\ section}.
+
+The \texttt{index.Rmd} file is required, and is also your first book chapter. It will be the homepage when you render the book.
+
+\hypertarget{render-book}{%
+\section{Render book}\label{render-book}}
+
+You can render the HTML version of this example book without changing anything:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Find the \textbf{Build} pane in the RStudio IDE, and
+\item
+  Click on \textbf{Build Book}, then select your output format, or select ``All formats'' if you'd like to use multiple formats from the same book source files.
+\end{enumerate}
+
+Or build the book from the R console:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bookdown}\SpecialCharTok{::}\FunctionTok{render\_book}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+To render this example to PDF as a \texttt{bookdown::pdf\_book}, you'll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): \url{https://yihui.org/tinytex/}.
+
+\hypertarget{preview-book}{%
+\section{Preview book}\label{preview-book}}
+
+As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in ``Preview book'', or from the R console:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bookdown}\SpecialCharTok{::}\FunctionTok{serve\_book}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{output-files}{%
+\section{Output files}\label{output-files}}
+
+One of the benefits of working in RMarkdown is that the `gitbook' extension is that it can easily be hosted on github. To do this with the least hurdles is to publish the output files as a github pages site from the \texttt{.docs/}.
 
   \bibliography{book.bib,packages.bib}
 
