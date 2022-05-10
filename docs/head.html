@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 2 &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD | Applications of R for research</title>
+  <meta name="description" content="A starting point for bookdown" />
+  <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 2 &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD | Applications of R for research" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A starting point for bookdown" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 2 &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD | Applications of R for research" />
+  
+  <meta name="twitter:description" content="A starting point for bookdown" />
+  
+
+<meta name="author" content="Rachael Remmington" />
+
+
+<meta name="date" content="2022-05-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">BIOL8700 Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> BIOL8700_setup_2022<span></span></a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#data-importing"><i class="fa fa-check"></i><b>1.1</b> Data importing<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="head.html"><a href="head.html"><i class="fa fa-check"></i><b>2</b> &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD<span></span></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="head.html"><a href="head.html#research-questions"><i class="fa fa-check"></i><b>2.1</b> Research Question(s)?<span></span></a></li>
+<li class="chapter" data-level="2.2" data-path="head.html"><a href="head.html#experimental-aims"><i class="fa fa-check"></i><b>2.2</b> Experimental Aims?<span></span></a></li>
+<li class="chapter" data-level="2.3" data-path="head.html"><a href="head.html#importing-data"><i class="fa fa-check"></i><b>2.3</b> Importing data<span></span></a></li>
+<li class="chapter" data-level="2.4" data-path="head.html"><a href="head.html#visualising-data"><i class="fa fa-check"></i><b>2.4</b> Visualising data<span></span></a></li>
+<li class="chapter" data-level="2.5" data-path="head.html"><a href="head.html#reporting"><i class="fa fa-check"></i><b>2.5</b> Reporting<span></span></a></li>
+<li class="chapter" data-level="2.6" data-path="head.html"><a href="head.html#rmarkdown-reports"><i class="fa fa-check"></i><b>2.6</b> RMarkdown reports<span></span></a></li>
+</ul></li>
+<li><a href="references.html#references">References<span></span></a>
+<ul>
+<li class="chapter" data-level="2.7" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>2.7</b> Manual references<span></span></a></li>
+<li class="chapter" data-level="2.8" data-path="references.html"><a href="references.html#packages"><i class="fa fa-check"></i><b>2.8</b> Packages<span></span></a></li>
+<li class="chapter" data-level="2.9" data-path="references.html"><a href="references.html#manual-references-1"><i class="fa fa-check"></i><b>2.9</b> Manual references<span></span></a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/davan690/BIOL8700_setup_2022" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Applications of R for research</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="head" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number"> 2</span> &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD<a href="head.html#head" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In that case, don’t forget to commit and push the resulting figure files, so they display on GitHub.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 510fa76071516ff9e7d07d6fd95903e68f94d19c
+## RStudio project file</p>
+<ul>
+<li><a href="https://r4ds.had.co.nz/workflow-projects.html" class="uri">https://r4ds.had.co.nz/workflow-projects.html</a></li>
+</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>510fa76071516ff9e7d07d6fd95903e68f94d19c</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+
+<p>Now that you have been developing a research question over the last few months, the next step is to design a set of experiments that will specifically test your research aims.</p>
+<p>We are often focused on the “cookbook” aspect of experiments – the protocols and steps required to conduct each experiment. However, it’s critical to spend time designing your overall experimental approach and the finer details to ensure that your research will produce robust data that can be clearly analysed without bias. When we test specific questions, we want to avoid statistical issues such as “noise” and “confounding” factors.</p>
+<p>Terry Neeman will be delivering a workshop to help you strengthen your experimental plan – both in terms of your proposed design, and to help you more clearly and accurately explain the rationale and set-up of your experiments. This workshop will help you apply the principles taught in BIOL8291 to your own experiment. To prepare, you will create an outline of your experimental plan, focusing on the statistical framework of your design.</p>
+<p>Below is an outline of questions for you to answer/justify for each part of your experimental plan. You will also need to draw two figures (digital drawings preferred) for each aim that show:</p>
+<ol style="list-style-type: decimal">
+<li>a simple overview of the experimental plan related to the research aim,</li>
+<li>a detailed “snap-shot” of the experimental set up (i.e., how will the plates, plants, etc. be arranged? Will there be a row-column design? Blocking? Randomization? What treatments will be applied and how many replicates will be tested?)</li>
+</ol>
+<p>You can access the template for the experimental plan on Wattle or a copy can be found within this repository. <a href="%223.%20Statistical%20Methods%20in%20Biology%20-%20Chapter%203.pdf%22">DOWNLOAD NOW</a>. The template is laid out below as follows:</p>
+<div id="research-questions" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Research Question(s)?<a href="head.html#research-questions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="head.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#input question here</span></span></code></pre></div>
+</div>
+<div id="experimental-aims" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Experimental Aims?<a href="head.html#experimental-aims" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For each experiment explain the overall experimental approach (1-3 sentences + overview diagram) list:</p>
+<ol style="list-style-type: decimal">
+<li>the response variables/outcome measure(s) for the experiment</li>
+<li>the experimental factor(s) of interest</li>
+<li>the experimental conditions (groups for comparisons), and the number of replicates/sample size for each condition</li>
+<li>the experimental control(s)</li>
+<li>are their any potentially confounding factors (“nuisance factors”)? Briefly explain how they will be tracked/or mitigated</li>
+</ol>
+<p>Briefly explain the design of the experiment and provide a diagram that shows a “snap shot” of the experimental set-up (e.g., how all the plants under different experimental conditions will be arranged, all the plates in the lab, a flow chart of computational steps, etc.). Make sure to consider and include relevant design aspects like blocking, randomisation, as well as to clearly indicate treatments, replicate numbers, and controls.</p>
+<blockquote>
+<p>TIP: Start thinking about how you will analyse your data:<br />
+“what statistical tests would you use?”</p>
+</blockquote>
+</div>
+<div id="importing-data" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Importing data<a href="head.html#importing-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="visualising-data" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Visualising data<a href="head.html#visualising-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="reporting" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Reporting<a href="head.html#reporting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+<p>This week we are going to set up our projects ready for Terry Newmans sample/survey design session next week.</p>
+<p>This will involve:</p>
+</div>
+<div id="rmarkdown-reports" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> RMarkdown reports<a href="head.html#rmarkdown-reports" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We shouls all know what these are and how to render a report in RMarkdown. This week we will produce a Rmarkdown report for your question ready to add data and other sampling design using a simple word, html or pdf template.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="head.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rmarkdown)</span>
+<span id="cb2-2"><a href="head.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rticles)</span>
+<span id="cb2-3"><a href="head.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bookdown)</span>
+<span id="cb2-4"><a href="head.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bookdownplus)</span></code></pre></div>
+<p>What does this tell us about how RProjects and other funky things work?</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Data import</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="head.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-2"><a href="head.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; -- Attaching packages --------------------------------------- tidyverse 1.3.1 --</span></span>
+<span id="cb3-3"><a href="head.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; v ggplot2 3.3.5     v purrr   0.3.4</span></span>
+<span id="cb3-4"><a href="head.html#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; v tibble  3.1.6     v dplyr   1.0.8</span></span>
+<span id="cb3-5"><a href="head.html#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; v tidyr   1.2.0     v stringr 1.4.0</span></span>
+<span id="cb3-6"><a href="head.html#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; v readr   2.1.2     v forcats 0.5.1</span></span>
+<span id="cb3-7"><a href="head.html#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; -- Conflicts ------------------------------------------ tidyverse_conflicts() --</span></span>
+<span id="cb3-8"><a href="head.html#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; x dplyr::filter() masks stats::filter()</span></span>
+<span id="cb3-9"><a href="head.html#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; x dplyr::lag()    masks stats::lag()</span></span>
+<span id="cb3-10"><a href="head.html#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code></pre></div>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Data visualisation</p></li>
+<li><p>Tidyverse approach</p></li>
+<li><p>ggplot</p></li>
+</ol>
+<p>Tasks ready for next week:</p>
+<ol style="list-style-type: decimal">
+<li><p>Outcome and predictor variables</p></li>
+<li><p>Other studies with same sampling design</p></li>
+<li><p>Other reference material.</p></li>
+<li><p>Read a cool sampling design/issue paper</p></li>
+</ol>
+<p>Watch this short (ish video) as a summary of what you should understand so far.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/davan690/BIOL8700_setup_2022/edit/main/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub", "_main.docx"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

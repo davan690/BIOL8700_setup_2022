@@ -1,24 +1,20 @@
 ---
-title: A Minimal Book Example for BIOL8700
-author: Anthony Davidson
+title: "A Minimal Book Example for BIOL8700"
+author: "Anthony Davidson"
 date: "`r Sys.Date()`"
-site: bookdown::bookdown_site
-documentclass: book
 bibliography:
-  - book.bib
-  - packages.bib
-# url: your book url like https://bookdown.org/yihui/bookdown
-# cover-image: path to the social sharing image like images/cover.jpg
+- book.bib
+- packages.bib
 description: A starting point for bookdown
 link-citations: yes
-lastmod: 2022-05-10T01:31:40.369Z
-
-# github-repo: rstudio/bookdown-demo
+site: bookdown::bookdown_site
+documentclass: book
 ---
 
 ```{r child = "README/README.Rmd"}
 #list.files()
 ```
+
 ## RStudio project file
 
 - https://r4ds.had.co.nz/workflow-projects.html
@@ -30,4 +26,3 @@ knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
 ```
->>>>>>> 510fa76071516ff9e7d07d6fd95903e68f94d19c

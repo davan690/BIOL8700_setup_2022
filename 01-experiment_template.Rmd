@@ -38,7 +38,6 @@ Briefly explain the design of the experiment and provide a diagram that shows a 
                 "what statistical tests would you use?"
                 
                 
-                
 ## Importing data
 
 
