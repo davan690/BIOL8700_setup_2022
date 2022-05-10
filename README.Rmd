@@ -1,0 +1,62 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+<!-- # BIOL877_setup_2022 -->
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of BIOL877_setup_2022 repository here is to provide a starting point for using RMarkdown and RStudio to undertake research.
+
+## Download project and files
+
+We checked and loaded an RMarkdown 
+
+
+This is a _sample_ book written in **Markdown** and extended from the original RMD file. You can use anything that Pandoc's Markdown supports; for example, a math equation $a^2 + b^2 = c^2$.
+
+## Usage 
+
+Each **bookdown** chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading.
+
+Use second-level and higher headings within chapters like: `## A short section` or `### An even shorter section`.
+
+The `index.Rmd` file is required, and is also your first book chapter. It will be the homepage when you render the book.
+
+## Render book
+
+You can render the HTML version of this example book without changing anything:
+
+1. Find the **Build** pane in the RStudio IDE, and
+
+1. Click on **Build Book**, then select your output format, or select "All formats" if you'd like to use multiple formats from the same book source files.
+
+Or build the book from the R console:
+
+```{r, eval=FALSE}
+bookdown::render_book()
+```
+
+To render this example to PDF as a `bookdown::pdf_book`, you'll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.org/tinytex/>.
+
+## Preview book
+
+As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in "Preview book", or from the R console:
+
+```{r eval=FALSE}
+bookdown::serve_book()
+```
+
+## Output files
+
+One of the benefits of working in RMarkdown is that the 'gitbook' extension is that it can easily be hosted on github. To do this with the least hurdles is to publish the output files as a github pages site from the `.docs/`.
