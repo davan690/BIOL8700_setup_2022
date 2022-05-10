@@ -7,7 +7,7 @@ bookdown::gitbook:
       after: |
         <li><a href="https://github.com/davan690/BIOL8700_setup_2022" target="blank">Published with bookdown</a></li>
     edit: https://github.com/davan690/BIOL8700_setup_2022/edit/main/%s
-    download: ["pdf", "epub"]
+    download: ["pdf", "epub", "docx"]
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
@@ -15,3 +15,7 @@ bookdown::pdf_book:
   citation_package: natbib
   keep_tex: yes
 bookdown::epub_book: default
+rmarkdown::html_document:
+    theme: yeti
+    highlight: textmate
+

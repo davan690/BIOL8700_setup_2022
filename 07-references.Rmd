@@ -1,3 +1,34 @@
 `r if (knitr::is_html_output()) '
 # References {-}
 '`
+
+
+
+One aspect that can be challenging when working with RMarkdown documents for manuscripts is references.
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
+
+
+The references for a bookdown or rmarkdown file can be included using the following information in the `yml` header of the index file.
+
+```
+
+```
+
+
+## Manual references
+
+
+
+
+## Packages
+
+```{r}
+
+```
+

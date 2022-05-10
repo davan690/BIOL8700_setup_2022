@@ -37,3 +37,10 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+#notes
+/notes2022/
+/_main/
+/libs/
+/experimental_plan/
+/Presentation/
