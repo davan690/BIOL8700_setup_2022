@@ -1,7 +1,13 @@
 ---
-title: "Experimental plan"
-author: "Rachael Remmington; Anthony Davidson"
+title: Experimental plan
+author: Rachael Remington; Anthony Davidson
+lastmod: 2022-05-11T13:11:20.068Z
 ---
+
+```{r}
+library(tidyverse)
+library(jtools)
+```
 
 # Experimental plan template
 
@@ -14,6 +20,7 @@ Terry Neeman will be delivering a workshop to help you strengthen your experimen
 Below is an outline of questions for you to answer/justify for each part of your experimental plan. You will also need to draw two figures (digital drawings preferred) for each aim that show:
 
 1) a simple overview of the experimental plan related to the research aim,
+
 2) a detailed “snap-shot” of the experimental set up (i.e., how will the plates, plants, etc. be arranged? Will there be a row-column design? Blocking? Randomization? What treatments will be applied and how many replicates will be tested?)
 
 You can access the template for the experimental plan on Wattle or a copy can be found within this repository. [DOWNLOAD NOW]("3. Statistical Methods in Biology - Chapter 3.pdf"). The template is laid out below as follows:
@@ -40,18 +47,13 @@ Briefly explain the design of the experiment and provide a diagram that shows a 
                 "what statistical tests would you use?"
                 
                 
-## Importing data
-
+#### Importing data
 
 ```{r}
 
-
-
 ```
 
-
-
-## Visualising data
+#### Visualising data
 
 ```{r}
 
@@ -59,7 +61,7 @@ Briefly explain the design of the experiment and provide a diagram that shows a 
 
 
 
-## Reporting
+#### Reporting
 
 ```{r}
 

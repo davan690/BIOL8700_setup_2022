@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>RMarkdown automation.</title>
+  <title> 2 RStudio project file | RMarkdown automation.</title>
   <meta name="description" content="A starting point for developing research projects with rmarkdown and other packages such as bookdown." />
   <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="RMarkdown automation." />
+  <meta property="og:title" content=" 2 RStudio project file | RMarkdown automation." />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="A starting point for developing research projects with rmarkdown and other packages such as bookdown." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="RMarkdown automation." />
+  <meta name="twitter:title" content=" 2 RStudio project file | RMarkdown automation." />
   
   <meta name="twitter:description" content="A starting point for developing research projects with rmarkdown and other packages such as bookdown." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="rstudio-project-file.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="biol8700_setup_2022.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -194,29 +194,70 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">RMarkdown automation.</h1>
-<h2 class="subtitle"><em>Extending research into application</em></h2>
-<p class="author"><em>Rachael Remington; Anthony Davidson</em></p>
-<p class="date"><em>2022-05-17</em></p>
-</div>
-<div id="index" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number"> 1</span> index<a href="index.html#index" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>ss.</p>
+<div id="rstudio-project-file" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number"> 2</span> RStudio project file<a href="rstudio-project-file.html#rstudio-project-file" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<ul>
+<li><a href="https://r4ds.had.co.nz/workflow-projects.html" class="uri">https://r4ds.had.co.nz/workflow-projects.html</a></li>
+</ul>
+<div id="git-ignore-file" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> git ignore file<a href="rstudio-project-file.html#git-ignore-file" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<pre><code># History files
+.Rhistory
+.Rapp.history
 
-<!-- # ```{r child = "README/README.Rmd"} -->
-<!-- # #list.files() -->
-<!-- # ``` -->
-<p>Last week we began to set up our projects using RMarkdown and R code so that we are ready for Terry Newmans sample/survey design session.</p>
-<p>Now this is postponed till next week we can finish this off.</p>
+# Session Data files
+.RData
+
+# User-specific files
+.Ruserdata
+
+# Example code in package build process
+*-Ex.R
+
+# Output files from R CMD build
+/*.tar.gz
+
+# Output files from R CMD check
+/*.Rcheck/
+
+# RStudio files
+.Rproj.user/
+
+# produced vignettes
+vignettes/*.html
+vignettes/*.pdf
+
+# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
+.httr-oauth
+
+# knitr and R markdown default cache directories
+*_cache/
+/cache/
+
+# Temporary files created by R markdown
+*.utf8.md
+*.knit.md
+
+# R Environment Variables
+.Renviron
+
+#notes
+/notes2022/
+/_main/
+/libs/
+/experimental_plan/
+/Presentation/
+/data/</code></pre>
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="rstudio-project-file.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="biol8700_setup_2022.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -247,7 +288,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/davan690/BIOL8700_setup_2022/edit/main/index.Rmd",
+"link": "https://github.com/davan690/BIOL8700_setup_2022/edit/main/01-Rmarkdown-tutorial.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -1,0 +1,61 @@
+---
+title: "RMarkdown automation."
+subtitle: "Extending research into application"
+output: html_notebook
+---
+
+```{r}
+#general packages used
+library(tidyverse)
+```
+
+# Automation
+
+What is special about using `README.Rmd` instead of just `README.md`? 
+
+You can include R chunks like so:
+
+You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/v1/examples>.
+
+## RMarkdown reports
+
+We should all know what these are and how to render a report in RMarkdown. Next we will produce a RMarkdown document for the question we have been working on ready to add data and other sampling design information. 
+
+1. Outcome and predictor variables
+2. Other study examples and code
+3. Other studies with same sampling design
+4. Other reference material.
+5. Read a cool sampling design/issue paper
+
+Watch this short (ish video) as a summary of what you should understand so far.
+
+What does this tell us about how RProjects and other funky things work?
+
+3. Data import
+
+```{r}
+dat <- read.csv("data/Analysis_ardMods.csv")
+```
+
+
+4. Data visualisation
+
+```{r}
+# table(dat$Well.Position)
+mean(dat$Delta.Ct.Mean, na.rm = TRUE)
+sd(dat$Delta.Ct.Mean, na.rm = TRUE)
+
+hist(dat$Delta.Ct.Mean)
+```
+
+
+5. Tidyverse approach
+
+```{r}
+glimpse(dat)
+```
+
+6. Nicer plots using `ggplot`
+
+#### Next steps
+

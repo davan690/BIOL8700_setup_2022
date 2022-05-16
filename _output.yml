@@ -18,9 +18,6 @@ bookdown::epub_book: default
 rmarkdown::html_document:
     theme: yeti
     highlight: textmate
-    # include:
-      # after_body: _footer.html
-      
 ####should use
 #   includes:
 #      in_header: header.html
@@ -28,9 +25,4 @@ rmarkdown::html_document:
 #      after_body: _footer.html
 
       # after_body: _footer.html
-      
-####should use
-#   includes:
-#      in_header: header.html
-#    include:
-#      after_body: _footer.html
+

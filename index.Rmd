@@ -1,27 +1,16 @@
 ---
 title: A Minimal Book Example for BIOL8700
-author: Anthony Davidson
+author: Anthony Davidson; Rachael Remington
 date: "`r Sys.Date()`"
 bibliography:
   - book.bib
   - packages.bib
-description: A starting point for bookdown
+description: A starting point for developing research projects with rmarkdown and other packages such as bookdown.
 link-citations: yes
 site: bookdown::bookdown_site
 documentclass: book
 ---
 
-```{r child = "README/README.Rmd"}
-#list.files()
-```
+# index 
 
-## RStudio project file
-
-- https://r4ds.had.co.nz/workflow-projects.html
-
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
+ss.

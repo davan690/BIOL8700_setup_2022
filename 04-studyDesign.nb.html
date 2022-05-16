@@ -11,7 +11,7 @@
 
 
 
-<title>Data reporting in RMarkdown.</title>
+<title>RMarkdown automation.</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -1760,71 +1760,57 @@ pre code {
 
 
 
-<h1 class="title toc-ignore">Data reporting in RMarkdown.</h1>
-<h3 class="subtitle">A quick demo</h3>
+<h1 class="title toc-ignore">RMarkdown automation.</h1>
+<h3 class="subtitle">Extending research into application</h3>
 
 </div>
 
 
 <!-- rnb-text-begin -->
-<div id="rmarkdown-reports" class="section level1">
-<h1>RMarkdown reports</h1>
+<div id="sampling-design" class="section level1">
+<h1>Sampling design</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2dlbmVyYWwgcGFja2FnZXMgdXNlZFxubGlicmFyeSh0aWR5dmVyc2UpXG5saWJyYXJ5KGtuaXRyKVxuYGBgIn0= -->
+<pre class="r"><code>#general packages used
+library(tidyverse)
+library(knitr)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <p>We should all know what these are and how to render a report in
 RMarkdown. Next we will produce a RMarkdown document for the question we
 have been working on ready to add data and other sampling design
 information.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2dlbmVyYWwgcGFja2FnZXMgdXNlZFxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
-<pre class="r"><code>#general packages used
-library(tidyverse)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>What does this tell us about how RProjects and other funky things
-work?</p>
-<ol start="3" style="list-style-type: decimal">
-<li>Data import</li>
-</ol>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0IDwtIHJlYWQuY3N2KFwiZGF0YS9BbmFseXNpc19hcmRNb2RzLmNzdlwiKVxuZ2xpbXBzZShkYXQpXG5gYGAifQ== -->
-<pre class="r"><code>dat &lt;- read.csv(&quot;data/Analysis_ardMods.csv&quot;)
-glimpse(dat)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<ol start="4" style="list-style-type: decimal">
-<li>Data visualisation</li>
-</ol>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyB0YWJsZShkYXQkV2VsbC5Qb3NpdGlvbilcbm1lYW4oZGF0JERlbHRhLkN0Lk1lYW4sIG5hLnJtID0gVFJVRSlcbnNkKGRhdCREZWx0YS5DdC5NZWFuLCBuYS5ybSA9IFRSVUUpXG5cbmhpc3QoZGF0JERlbHRhLkN0Lk1lYW4pXG5gYGAifQ== -->
-<pre class="r"><code># table(dat$Well.Position)
-mean(dat$Delta.Ct.Mean, na.rm = TRUE)
-sd(dat$Delta.Ct.Mean, na.rm = TRUE)
-
-hist(dat$Delta.Ct.Mean)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<ol start="5" style="list-style-type: decimal">
-<li><p>Tidyverse approach</p></li>
-<li><p>ggplot</p></li>
-</ol>
-<p>Tasks ready for next week:</p>
 <ol style="list-style-type: decimal">
-<li><p>Outcome and predictor variables</p></li>
-<li><p>Other studies with same sampling design</p></li>
-<li><p>Other reference material.</p></li>
-<li><p>Read a cool sampling design/issue paper</p></li>
+<li>Outcome and predictor variables</li>
+<li>Other study examples and code</li>
+<li>Other studies with same sampling design</li>
+<li>Other reference material.</li>
+<li>Read a cool sampling design/issue paper</li>
 </ol>
-<p>Watch this short (ish video) as a summary of what you should
-understand so far.</p>
+<div id="terrys-lecture-in-rmarkdown" class="section level2">
+<h2>Terry’s lecture in RMarkdown</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxua25pdHI6OmluY2x1ZGVfZ3JhcGhpY3MoXCJzdHVkeV9kZXNpZ24vRXhwZXJpbWVudGFsLXBsYW4td29ya3Nob3AgVGVycnkgTmVlbWFuIDE3IE1heSAyMDAyLnBkZlwiKVxuXG5gYGAifQ== -->
+<pre class="r"><code>knitr::include_graphics(&quot;study_design/Experimental-plan-workshop Terry Neeman 17 May 2002.pdf&quot;)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZyBtZXNzYWdlczpcbjE6IEluIHJlYWRMaW5lcyhpbmRleCwgZW5jb2RpbmcgPSBlbmNvZGluZykgOlxuICBpbmNvbXBsZXRlIGZpbmFsIGxpbmUgZm91bmQgb24gJ0Q6L0JJT0w4NzAwX3NldHVwXzIwMjIvaW5kZXguUm1kJ1xuMjogSW4gcmVhZExpbmVzKGluZGV4LCBlbmNvZGluZyA9IGVuY29kaW5nKSA6XG4gIGluY29tcGxldGUgZmluYWwgbGluZSBmb3VuZCBvbiAnRDovQklPTDg3MDBfc2V0dXBfMjAyMi9pbmRleC5SbWQnXG4ifQ== -->
+<pre><code>Warning messages:
+1: In readLines(index, encoding = encoding) :
+  incomplete final line found on &#39;D:/BIOL8700_setup_2022/index.Rmd&#39;
+2: In readLines(index, encoding = encoding) :
+  incomplete final line found on &#39;D:/BIOL8700_setup_2022/index.Rmd&#39;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
+</div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkRhdGEgcmVwb3J0aW5nIGluIFJNYXJrZG93bi4iDQpzdWJ0aXRsZTogIiBBIHF1aWNrIGRlbW8iDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojIFJNYXJrZG93biByZXBvcnRzDQoNCldlIHNob3VsZCBhbGwga25vdyB3aGF0IHRoZXNlIGFyZSBhbmQgaG93IHRvIHJlbmRlciBhIHJlcG9ydCBpbiBSTWFya2Rvd24uIE5leHQgd2Ugd2lsbCBwcm9kdWNlIGEgUk1hcmtkb3duIGRvY3VtZW50IGZvciB0aGUgcXVlc3Rpb24gd2UgaGF2ZSBiZWVuIHdvcmtpbmcgb24gcmVhZHkgdG8gYWRkIGRhdGEgYW5kIG90aGVyIHNhbXBsaW5nIGRlc2lnbiBpbmZvcm1hdGlvbi4NCg0KYGBge3J9DQojZ2VuZXJhbCBwYWNrYWdlcyB1c2VkDQpsaWJyYXJ5KHRpZHl2ZXJzZSkNCmBgYA0KDQpXaGF0IGRvZXMgdGhpcyB0ZWxsIHVzIGFib3V0IGhvdyBSUHJvamVjdHMgYW5kIG90aGVyIGZ1bmt5IHRoaW5ncyB3b3JrPw0KDQozLiBEYXRhIGltcG9ydA0KDQpgYGB7cn0NCmRhdCA8LSByZWFkLmNzdigiZGF0YS9BbmFseXNpc19hcmRNb2RzLmNzdiIpDQpnbGltcHNlKGRhdCkNCmBgYA0KDQoNCjQuIERhdGEgdmlzdWFsaXNhdGlvbg0KDQpgYGB7cn0NCiMgdGFibGUoZGF0JFdlbGwuUG9zaXRpb24pDQptZWFuKGRhdCREZWx0YS5DdC5NZWFuLCBuYS5ybSA9IFRSVUUpDQpzZChkYXQkRGVsdGEuQ3QuTWVhbiwgbmEucm0gPSBUUlVFKQ0KDQpoaXN0KGRhdCREZWx0YS5DdC5NZWFuKQ0KYGBgDQoNCg0KNS4gVGlkeXZlcnNlIGFwcHJvYWNoDQoNCg0KDQo2LiAgICBnZ3Bsb3QNCg0KVGFza3MgcmVhZHkgZm9yIG5leHQgd2VlazoNCg0KMS4gT3V0Y29tZSBhbmQgcHJlZGljdG9yIHZhcmlhYmxlcw0KDQoNCg0KMy4gT3RoZXIgc3R1ZGllcyB3aXRoIHNhbWUgc2FtcGxpbmcgZGVzaWduDQoNCjUuIE90aGVyIHJlZmVyZW5jZSBtYXRlcmlhbC4NCg0KNy4gUmVhZCBhIGNvb2wgc2FtcGxpbmcgZGVzaWduL2lzc3VlIHBhcGVyDQoNCldhdGNoIHRoaXMgc2hvcnQgKGlzaCB2aWRlbykgYXMgYSBzdW1tYXJ5IG9mIHdoYXQgeW91IHNob3VsZCB1bmRlcnN0YW5kIHNvIGZhci4=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlJNYXJrZG93biBhdXRvbWF0aW9uLiINCnN1YnRpdGxlOiAiRXh0ZW5kaW5nIHJlc2VhcmNoIGludG8gYXBwbGljYXRpb24iDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojIFNhbXBsaW5nIGRlc2lnbg0KDQpgYGB7cn0NCiNnZW5lcmFsIHBhY2thZ2VzIHVzZWQNCmxpYnJhcnkodGlkeXZlcnNlKQ0KbGlicmFyeShrbml0cikNCmBgYA0KDQpXZSBzaG91bGQgYWxsIGtub3cgd2hhdCB0aGVzZSBhcmUgYW5kIGhvdyB0byByZW5kZXIgYSByZXBvcnQgaW4gUk1hcmtkb3duLiBOZXh0IHdlIHdpbGwgcHJvZHVjZSBhIFJNYXJrZG93biBkb2N1bWVudCBmb3IgdGhlIHF1ZXN0aW9uIHdlIGhhdmUgYmVlbiB3b3JraW5nIG9uIHJlYWR5IHRvIGFkZCBkYXRhIGFuZCBvdGhlciBzYW1wbGluZyBkZXNpZ24gaW5mb3JtYXRpb24uIA0KDQoxLiBPdXRjb21lIGFuZCBwcmVkaWN0b3IgdmFyaWFibGVzDQoyLiBPdGhlciBzdHVkeSBleGFtcGxlcyBhbmQgY29kZQ0KMy4gT3RoZXIgc3R1ZGllcyB3aXRoIHNhbWUgc2FtcGxpbmcgZGVzaWduDQo0LiBPdGhlciByZWZlcmVuY2UgbWF0ZXJpYWwuDQo1LiBSZWFkIGEgY29vbCBzYW1wbGluZyBkZXNpZ24vaXNzdWUgcGFwZXINCg0KIyMgVGVycnkncyBsZWN0dXJlIGluIFJNYXJrZG93bg0KDQpgYGB7cn0NCmtuaXRyOjppbmNsdWRlX2dyYXBoaWNzKCJzdHVkeV9kZXNpZ24vRXhwZXJpbWVudGFsLXBsYW4td29ya3Nob3AgVGVycnkgTmVlbWFuIDE3IE1heSAyMDAyLnBkZiIpDQpgYGANCg0K</div>
 
 
 
@@ -1871,7 +1857,7 @@ $(document).ready(function () {
 <!-- code folding -->
 <script>
 $(document).ready(function () {
-  window.initializeSourceEmbed("03-experiment_code_setup.Rmd");
+  window.initializeSourceEmbed("04-studyDesign.Rmd");
   window.initializeCodeFolding("show" === "show");
 });
 </script>
