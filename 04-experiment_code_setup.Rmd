@@ -1,0 +1,98 @@
+---
+title: "Data reporting in RMarkdown."
+subtitle: " A quick demo"
+output: html_notebook
+---
+
+# RMarkdown reports
+
+We should all know what these are and how to render/generate a  report or document in RMarkdown. 
+
+The next we will produce a RMarkdown document for the question we have been working on ready to add data and other sampling design information.
+
+```{r}
+#general packages used
+library(tidyverse)
+```
+
+What does this tell us about how RProjects and other funky things work?
+
+3. Data import
+
+```{r}
+dat <- read.csv("data/Analysis_ardMods.csv")
+glimpse(dat)
+variable.names(dat)
+
+length(unique(dat$Well.Position))
+
+# outcome <- dat$
+
+table(dat$Omit)
+
+removedData <- dat %>%
+  filter(Omit != "false")
+
+head(removedData)
+```
+
+
+4. Data visualisation
+
+```{r}
+# table(dat$Well.Position)
+mean(dat$Delta.Ct.Mean, na.rm = TRUE)
+sd(dat$Delta.Ct.Mean, na.rm = TRUE)
+
+hist(dat$Delta.Ct.Mean)
+```
+
+3. Data import
+
+```{r}
+dat <- read.csv("data/Analysis_ardMods.csv")
+```
+
+
+4. Data visualisation
+
+```{r}
+# table(dat$Well.Position)
+mean(dat$Delta.Ct.Mean, na.rm = TRUE)
+sd(dat$Delta.Ct.Mean, na.rm = TRUE)
+
+hist(dat$Delta.Ct.Mean)
+```
+
+
+5. Tidyverse approach
+
+```{r}
+variable.names(dat)
+
+#sample name
+# table(dat$Sample.Name)
+table(dat$Target.Name)
+mean(as.numeric(dat$CT), na.rm = TRUE)
+
+##sumarise over Target Name and find n, mean, mode, median, sd, etc for each of the target names?
+
+```
+
+6. Nicer plots using `ggplot`
+
+5. Tidyverse approach
+
+```{r}
+#tidy data
+#tibble
+
+```
+
+
+6.    ggplot
+
+Much easier to work this this and tidyverse
+
+
+7. Read a cool sampling design/issue paper

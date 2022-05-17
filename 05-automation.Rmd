@@ -1,23 +1,8 @@
----
-title: "RMarkdown automation."
-subtitle: "Extending research into application"
-output: html_notebook
----
 
 ```{r}
 #general packages used
 library(tidyverse)
 ```
-
-# Automation
-
-What is special about using `README.Rmd` instead of just `README.md`? 
-
-You can include R chunks like so:
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/v1/examples>.
-
-## RMarkdown reports
 
 We should all know what these are and how to render a report in RMarkdown. Next we will produce a RMarkdown document for the question we have been working on ready to add data and other sampling design information. 
 
@@ -27,35 +12,58 @@ We should all know what these are and how to render a report in RMarkdown. Next 
 4. Other reference material.
 5. Read a cool sampling design/issue paper
 
-Watch this short (ish video) as a summary of what you should understand so far.
+# Power analysis
 
+Watch this short (ish video) as a summary of what you should understand so far.
 What does this tell us about how RProjects and other funky things work?
 
-3. Data import
 
 ```{r}
-dat <- read.csv("data/Analysis_ardMods.csv")
+library(stats)
+power.anova.test(groups = 4, n = 5, between.var = 1, within.var = 3)
+# Power = 0.3535594
+
+power.anova.test(groups = 4, between.var = 1, within.var = 3,
+                 power = .80)
+# n = 11.92613
+
+## Assume we have prior knowledge of the group means:
+groupmeans <- c(120, 130, 140, 150)
+power.anova.test(groups = length(groupmeans),
+                 between.var = var(groupmeans),
+                 within.var = 500, power = .90) # n = 15.18834
 ```
 
 
-4. Data visualisation
+<!-- Watch this short (ish video) as a summary of what you should understand so far. -->
+
+I can not find the additional code from last year but this is a slight variation on the project.
 
 ```{r}
-# table(dat$Well.Position)
-mean(dat$Delta.Ct.Mean, na.rm = TRUE)
-sd(dat$Delta.Ct.Mean, na.rm = TRUE)
-
-hist(dat$Delta.Ct.Mean)
+knitr::include_app("https://mathiasharrer.shinyapps.io/power_calculator_meta_analysis/", height = "1500px") 
 ```
 
-
-5. Tidyverse approach
+## Meta-analysis power test
 
 ```{r}
-glimpse(dat)
-```
+# The included numbers will per calculate power for a meta-analysis to detect a summary effect size of 0.2, with an average sample size per group of = 50, a total of 15 effect sizes, and moderate heterogeneity.
 
-6. Nicer plots using `ggplot`
+es <- 0.2 # Enter your summary effect size
+as <- 50  # Average per number per group
+mk <- 15  # Number of effect sizes
+hg <- 1   # Heterogeniety (".33" for small, "1" for moderate, & "3" for large)
+
+eq1 <- ((as+as)/((as)*(as))) + ((es^2)/(2*(as+as)))
+eq2 <- hg*(eq1)
+eq3 <- eq2+eq1
+eq4 <- eq3/mk
+eq5 <- (es/sqrt(eq4))
+Power <- (1-pnorm(1.96-eq5)) # Two-tailed
+Power
+```
 
 #### Next steps
 
+Collect some sample data and application.
+
+z

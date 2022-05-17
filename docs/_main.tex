@@ -36,7 +36,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={RMarkdown automation.},
+  pdftitle={Data reporting in RMarkdown.},
   pdfauthor={Rachael Remington; Anthony Davidson},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
@@ -115,14 +115,14 @@
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
 
-\title{RMarkdown automation.}
+\title{Data reporting in RMarkdown.}
 \usepackage{etoolbox}
 \makeatletter
 \providecommand{\subtitle}[1]{% add subtitle to \maketitle
   \apptocmd{\@title}{\par {\large #1 \par}}{}{}
 }
 \makeatother
-\subtitle{Extending research into application}
+\subtitle{A quick demo}
 \author{Rachael Remington; Anthony Davidson}
 \date{2022-05-17}
 
@@ -133,163 +133,38 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\hypertarget{index}{%
-\chapter{index}\label{index}}
+Resources for class 2022 and future 8700 classes
 
-ss.
+\hypertarget{contents}{%
+\chapter{Contents}\label{contents}}
 
-Last week we began to set up our projects using RMarkdown and R code so that we are ready for Terry Newmans sample/survey design session.
+Resources for class 2022 and future 8700 classes
 
-Now this is postponed till next week we can finish this off.
-
-\hypertarget{rstudio-project-file}{%
-\chapter{RStudio project file}\label{rstudio-project-file}}
-
-\begin{itemize}
-\tightlist
-\item
-  \url{https://r4ds.had.co.nz/workflow-projects.html}
-\end{itemize}
-
-\hypertarget{git-ignore-file}{%
-\section{git ignore file}\label{git-ignore-file}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
-# History files
-.Rhistory
-.Rapp.history
-
-# Session Data files
-.RData
-
-# User-specific files
-.Ruserdata
-
-# Example code in package build process
-*-Ex.R
-
-# Output files from R CMD build
-/*.tar.gz
-
-# Output files from R CMD check
-/*.Rcheck/
-
-# RStudio files
-.Rproj.user/
-
-# produced vignettes
-vignettes/*.html
-vignettes/*.pdf
-
-# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
-.httr-oauth
-
-# knitr and R markdown default cache directories
-*_cache/
-/cache/
-
-# Temporary files created by R markdown
-*.utf8.md
-*.knit.md
-
-# R Environment Variables
-.Renviron
-
-#notes
-/notes2022/
-/_main/
-/libs/
-/experimental_plan/
-/Presentation/
-/data/
+## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --
 \end{verbatim}
 
-\hypertarget{biol8700_setup_2022}{%
-\chapter{BIOL8700\_setup\_2022}\label{biol8700_setup_2022}}
+\begin{verbatim}
+## v ggplot2 3.3.5     v purrr   0.3.4
+## v tibble  3.1.6     v dplyr   1.0.8
+## v tidyr   1.2.0     v stringr 1.4.0
+## v readr   2.1.2     v forcats 0.5.1
+\end{verbatim}
 
-The goal of BIOL8700\_setup\_2022 is to setup and generate documents using RStudio, RMarkdown and github
-
-\hypertarget{tools}{%
-\section{Tools}\label{tools}}
-
-This is a \emph{sample} book written in \textbf{Markdown} and includes embedded R code. This combination of programming languages is included in the RMarkdown package. We use this and a variation of other RMarkdown packages to make the most of reproducible reporting in R.
-
-\hypertarget{data-importing}{%
-\section{Data importing}\label{data-importing}}
-
-There are scripts and code included within this repository to import data from csv and excel files from local and online locations.
-
-\hypertarget{results}{%
-\section{Results}\label{results}}
-
-You can also embed plots, code and data in an RMarkdown document. The core results of this repository are as follows:
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub.
-
-\hypertarget{quick-overview-of-last-week}{%
-\subsection{Quick overview of last week}\label{quick-overview-of-last-week}}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Run the R chunk below and check that you have all the packages running from last week.
-\end{enumerate}
+\begin{verbatim}
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+\end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(rmarkdown)}
-\FunctionTok{library}\NormalTok{(rticles)}
-\FunctionTok{library}\NormalTok{(bookdown)}
-\FunctionTok{library}\NormalTok{(bookdownplus)}
-\FunctionTok{library}\NormalTok{(tidyverse)}
-\CommentTok{\#\textgreater{} {-}{-} Attaching packages {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-} tidyverse 1.3.1 {-}{-}}
-\CommentTok{\#\textgreater{} v ggplot2 3.3.5     v purrr   0.3.4}
-\CommentTok{\#\textgreater{} v tibble  3.1.6     v dplyr   1.0.8}
-\CommentTok{\#\textgreater{} v tidyr   1.2.0     v stringr 1.4.0}
-\CommentTok{\#\textgreater{} v readr   2.1.2     v forcats 0.5.1}
-\CommentTok{\#\textgreater{} {-}{-} Conflicts {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-} tidyverse\_conflicts() {-}{-}}
-\CommentTok{\#\textgreater{} x dplyr::filter() masks stats::filter()}
-\CommentTok{\#\textgreater{} x dplyr::lag()    masks stats::lag()}
-\FunctionTok{library}\NormalTok{(readxl)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{1}
-\tightlist
-\item
-  Can you import the data set you found last week in class?
-\end{enumerate}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\#read.csv}
-\CommentTok{\#read.xl}
-\CommentTok{\#example from }
-\end{Highlighting}
-\end{Shaded}
-
-\begin{itemize}
-\tightlist
-\item
-  What options did we have?
-\item
-  Here I will take the following dataset and extend this to include some code and plots for the data
-\end{itemize}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{2}
-\item
-  Follow along with the next chapter\ldots.
-\item
-\end{enumerate}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(tidyverse)}
 \FunctionTok{library}\NormalTok{(jtools)}
 \end{Highlighting}
 \end{Shaded}
@@ -313,10 +188,12 @@ Below is an outline of questions for you to answer/justify for each part of your
   a detailed ``snap-shot'' of the experimental set up (i.e., how will the plates, plants, etc. be arranged? Will there be a row-column design? Blocking? Randomization? What treatments will be applied and how many replicates will be tested?)
 \end{enumerate}
 
-You can access the template for the experimental plan on Wattle or a copy can be found within this repository. \href{\%223.\%20Statistical\%20Methods\%20in\%20Biology\%20-\%20Chapter\%203.pdf\%22}{DOWNLOAD NOW}. The template is laid out below as follows:
+You can access the template for the experimental plan on Wattle or a copy can be found within this repository. \href{\%22pdfs/3.\%20Statistical\%20Methods\%20in\%20Biology\%20-\%20Chapter\%203.pdf\%22}{DOWNLOAD NOW}.
 
-\hypertarget{research-questions}{%
-\section{Research Question(s)?}\label{research-questions}}
+The template is laid out below as follows:
+
+\hypertarget{research-question}{%
+\section{Research Question}\label{research-question}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -325,7 +202,7 @@ You can access the template for the experimental plan on Wattle or a copy can be
 \end{Shaded}
 
 \hypertarget{experimental-aims}{%
-\section{Experimental Aims?}\label{experimental-aims}}
+\section{Experimental Aims}\label{experimental-aims}}
 
 For each experiment explain the overall experimental approach (1-3 sentences + overview diagram) list:
 
@@ -333,26 +210,133 @@ For each experiment explain the overall experimental approach (1-3 sentences + o
 \def\labelenumi{\arabic{enumi})}
 \tightlist
 \item
-  the response variables/outcome measure(s) for the experiment
+  Response/Outcome measure for the experiment;
 \item
-  the experimental factor(s) of interest
+  The experimental factor(s) of interest;
 \item
-  the experimental conditions (groups for comparisons), and the number of replicates/sample size for each condition
+  The experimental conditions (groups for comparisons);
 \item
-  the experimental control(s)
+  The number of replicates/sample size for each condition;
 \item
-  are their any potentially confounding factors (``nuisance factors'')? Briefly explain how they will be tracked/or mitigated
+  The experimental control(s);
+\item
+  Are their any potentially confounding factors (``nuisance factors'')?
+\item
+  Briefly explain how they will be tracked/or mitigated.
 \end{enumerate}
 
 Briefly explain the design of the experiment and provide a diagram that shows a ``snap shot'' of the experimental set-up (e.g., how all the plants under different experimental conditions will be arranged, all the plates in the lab, a flow chart of computational steps, etc.). Make sure to consider and include relevant design aspects like blocking, randomisation, as well as to clearly indicate treatments, replicate numbers, and controls.
 
 \begin{quote}
-TIP: Start thinking about how you will analyse your data:\\
-``what statistical tests would you use?''
+TIP: Start thinking about how you will analyse your data: ``what statistical tests would you use?''
 \end{quote}
 
+\hypertarget{sampling-design}{%
+\chapter{Sampling design}\label{sampling-design}}
+
+Outcome vs experimental factors matter and how we contruct models is directly related to the underlying structure of the data we have collected.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#general packages used}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(knitr)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{terrys-lecture-in-rmarkdown}{%
+\section{Terry's lecture in RMarkdown}\label{terrys-lecture-in-rmarkdown}}
+
+Understanding variance is very important for building statistical models. But what it is really about is structuring and generating reproducible experiments.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{"study\_experiment\_design/Experimental{-}plan{-}workshop Terry Neeman 17 May 2002.pdf"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{study_experiment_design/Experimental-plan-workshop Terry Neeman 17 May 2002.pdf}
+
+We should all know what these are and how to render a report in RMarkdown. Next we will produce a RMarkdown document for the question we have been working on ready to add data and other sampling design information.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Outcome and predictor variables
+\item
+  Statistical model fitting
+\item
+  Visual results
+\end{enumerate}
+
+\hypertarget{how-would-you-design-your-experiment}{%
+\subsection{How would you design your experiment?}\label{how-would-you-design-your-experiment}}
+
+What will the actual design look like? How are the treatments and samples laid out within the experimental layout.
+
+\hypertarget{model-selection}{%
+\subsection{Model selection}\label{model-selection}}
+
+\[ null model = lm(activity = 0) \]
+More complex model.
+
+\[ model_1 = lm(activity \equiv GBP8 + (1|litter) + (1|mouseID)) \]
+
 \hypertarget{importing-data}{%
-\subsubsection{Importing data}\label{importing-data}}
+\subsection{Importing data}\label{importing-data}}
+
+From the model above it is possible to generate a dataset to produce a model fit and outcomes generated.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(gridExtra)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'gridExtra'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:dplyr':
+## 
+##     combine
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dat }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"data/Analysis\_ardMods.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Select variables from dataset and check the numerical structure is correct in R (numerical, factor etc).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 3what response}
+\NormalTok{responseACT }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{Delta.Ct.Mean)}
+\NormalTok{responseACT2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{EQ.Ct.Mean)}
+
+
+\NormalTok{ p1 }\OtherTok{\textless{}{-}} \FunctionTok{hist}\NormalTok{(responseACT)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ p2 }\OtherTok{\textless{}{-}} \FunctionTok{hist}\NormalTok{(responseACT2)}
+ 
+ \FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+ \FunctionTok{hist}\NormalTok{(responseACT2)}
+ \FunctionTok{hist}\NormalTok{(responseACT)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-6-2.pdf}
 
 \hypertarget{visualising-data}{%
 \subsubsection{Visualising data}\label{visualising-data}}
@@ -363,7 +347,9 @@ TIP: Start thinking about how you will analyse your data:\\
 \hypertarget{rmarkdown-reports}{%
 \chapter{RMarkdown reports}\label{rmarkdown-reports}}
 
-We should all know what these are and how to render a report in RMarkdown. Next we will produce a RMarkdown document for the question we have been working on ready to add data and other sampling design information.
+We should all know what these are and how to render/generate a report or document in RMarkdown.
+
+The next we will produce a RMarkdown document for the question we have been working on ready to add data and other sampling design information.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -386,45 +372,130 @@ What does this tell us about how RProjects and other funky things work?
 \begin{Highlighting}[]
 \NormalTok{dat }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"data/Analysis\_ardMods.csv"}\NormalTok{)}
 \FunctionTok{glimpse}\NormalTok{(dat)}
-\CommentTok{\#\textgreater{} Rows: 380}
-\CommentTok{\#\textgreater{} Columns: 35}
-\CommentTok{\#\textgreater{} $ Well                   \textless{}chr\textgreater{} "1", "2", "3", "4", "5", "6", "7", "8", "9", "1\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Well.Position          \textless{}chr\textgreater{} "A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8",\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Omit                   \textless{}chr\textgreater{} "false", "false", "false", "false", "false", "f\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Sample.Name            \textless{}chr\textgreater{} "1", "2", "3", "4", "5", "6", "7", "8", "9", "1\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Delta.Ct.SE            \textless{}lgl\textgreater{} NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Target.Name            \textless{}chr\textgreater{} "Gapdh", "Gapdh", "Gapdh", "Gapdh", "Gapdh", "G\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Task                   \textless{}chr\textgreater{} "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UN\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Reporter               \textless{}chr\textgreater{} "SYBR", "SYBR", "SYBR", "SYBR", "SYBR", "SYBR",\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Quencher               \textless{}chr\textgreater{} "None", "None", "None", "None", "None", "None",\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ RQ                     \textless{}dbl\textgreater{} NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ RQ.Min                 \textless{}dbl\textgreater{} NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ RQ.Max                 \textless{}dbl\textgreater{} NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ CT                     \textless{}chr\textgreater{} "12.909", "14.253", "13.532", "13.377", "14.249\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ EQ.Ct.Mean             \textless{}dbl\textgreater{} 12.909, 14.253, 13.532, 13.377, 14.249, 15.053,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ EQ.Ct.SE               \textless{}lgl\textgreater{} NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Quantity               \textless{}lgl\textgreater{} NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Delta.Ct.Mean          \textless{}dbl\textgreater{} NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Delta.Delta.Ct         \textless{}dbl\textgreater{} NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Automatic.Ct.Threshold \textless{}chr\textgreater{} "true", "true", "true", "true", "true", "true",\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Ct.Threshold           \textless{}dbl\textgreater{} 0.062, 0.062, 0.062, 0.062, 0.062, 0.062, 0.062\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Automatic.Baseline     \textless{}chr\textgreater{} "true", "true", "true", "true", "true", "true",\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Baseline.Start         \textless{}int\textgreater{} 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Baseline.End           \textless{}int\textgreater{} 9, 11, 10, 10, 11, 13, 10, 10, 11, 10, 9, 9, 10\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Efficiency             \textless{}lgl\textgreater{} NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Tm1                    \textless{}dbl\textgreater{} 84.395, 84.395, 84.395, 84.395, 84.395, 84.527,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Comments               \textless{}lgl\textgreater{} NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Tm2                    \textless{}dbl\textgreater{} NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Amp.Score              \textless{}dbl\textgreater{} 1.346, 1.345, 1.352, 1.349, 1.339, 1.356, 1.347\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Tm3                    \textless{}dbl\textgreater{} NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Cq.Conf                \textless{}dbl\textgreater{} 0.920, 0.872, 0.930, 0.933, 0.974, 0.938, 0.924\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ MTP                    \textless{}chr\textgreater{} "N", "N", "N", "N", "N", "N", "N", "N", "N", "N\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ EXPFAIL                \textless{}chr\textgreater{} "N", "N", "N", "N", "N", "N", "N", "N", "N", "N\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ NOISE                  \textless{}chr\textgreater{} "N", "N", "N", "N", "N", "N", "N", "N", "N", "N\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ NOAMP                  \textless{}chr\textgreater{} "N", "N", "N", "N", "N", "N", "N", "N", "N", "N\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ THOLDFAIL              \textless{}chr\textgreater{} "N", "N", "N", "N", "N", "N", "N", "N", "N", "N\textasciitilde{}}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## Rows: 380
+## Columns: 35
+## $ Well                   <chr> "1", "2", "3", "4", "5", "6", "7", "8", "9", "1~
+## $ Well.Position          <chr> "A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8",~
+## $ Omit                   <chr> "false", "false", "false", "false", "false", "f~
+## $ Sample.Name            <chr> "1", "2", "3", "4", "5", "6", "7", "8", "9", "1~
+## $ Delta.Ct.SE            <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+## $ Target.Name            <chr> "Gapdh", "Gapdh", "Gapdh", "Gapdh", "Gapdh", "G~
+## $ Task                   <chr> "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UN~
+## $ Reporter               <chr> "SYBR", "SYBR", "SYBR", "SYBR", "SYBR", "SYBR",~
+## $ Quencher               <chr> "None", "None", "None", "None", "None", "None",~
+## $ RQ                     <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+## $ RQ.Min                 <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+## $ RQ.Max                 <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+## $ CT                     <chr> "12.909", "14.253", "13.532", "13.377", "14.249~
+## $ EQ.Ct.Mean             <dbl> 12.909, 14.253, 13.532, 13.377, 14.249, 15.053,~
+## $ EQ.Ct.SE               <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+## $ Quantity               <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+## $ Delta.Ct.Mean          <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+## $ Delta.Delta.Ct         <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+## $ Automatic.Ct.Threshold <chr> "true", "true", "true", "true", "true", "true",~
+## $ Ct.Threshold           <dbl> 0.062, 0.062, 0.062, 0.062, 0.062, 0.062, 0.062~
+## $ Automatic.Baseline     <chr> "true", "true", "true", "true", "true", "true",~
+## $ Baseline.Start         <int> 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,~
+## $ Baseline.End           <int> 9, 11, 10, 10, 11, 13, 10, 10, 11, 10, 9, 9, 10~
+## $ Efficiency             <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+## $ Tm1                    <dbl> 84.395, 84.395, 84.395, 84.395, 84.395, 84.527,~
+## $ Comments               <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+## $ Tm2                    <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+## $ Amp.Score              <dbl> 1.346, 1.345, 1.352, 1.349, 1.339, 1.356, 1.347~
+## $ Tm3                    <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+## $ Cq.Conf                <dbl> 0.920, 0.872, 0.930, 0.933, 0.974, 0.938, 0.924~
+## $ MTP                    <chr> "N", "N", "N", "N", "N", "N", "N", "N", "N", "N~
+## $ EXPFAIL                <chr> "N", "N", "N", "N", "N", "N", "N", "N", "N", "N~
+## $ NOISE                  <chr> "N", "N", "N", "N", "N", "N", "N", "N", "N", "N~
+## $ NOAMP                  <chr> "N", "N", "N", "N", "N", "N", "N", "N", "N", "N~
+## $ THOLDFAIL              <chr> "N", "N", "N", "N", "N", "N", "N", "N", "N", "N~
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{variable.names}\NormalTok{(dat)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "Well"                   "Well.Position"          "Omit"                  
+##  [4] "Sample.Name"            "Delta.Ct.SE"            "Target.Name"           
+##  [7] "Task"                   "Reporter"               "Quencher"              
+## [10] "RQ"                     "RQ.Min"                 "RQ.Max"                
+## [13] "CT"                     "EQ.Ct.Mean"             "EQ.Ct.SE"              
+## [16] "Quantity"               "Delta.Ct.Mean"          "Delta.Delta.Ct"        
+## [19] "Automatic.Ct.Threshold" "Ct.Threshold"           "Automatic.Baseline"    
+## [22] "Baseline.Start"         "Baseline.End"           "Efficiency"            
+## [25] "Tm1"                    "Comments"               "Tm2"                   
+## [28] "Amp.Score"              "Tm3"                    "Cq.Conf"               
+## [31] "MTP"                    "EXPFAIL"                "NOISE"                 
+## [34] "NOAMP"                  "THOLDFAIL"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{length}\NormalTok{(}\FunctionTok{unique}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{Well.Position))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 380
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# outcome \textless{}{-} dat$}
+
+\FunctionTok{table}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{Omit)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##       false 
+##     4   376
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{removedData }\OtherTok{\textless{}{-}}\NormalTok{ dat }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(Omit }\SpecialCharTok{!=} \StringTok{"false"}\NormalTok{)}
+
+\FunctionTok{head}\NormalTok{(removedData)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                          Well Well.Position Omit Sample.Name Delta.Ct.SE
+## 1               Analysis Type    Singleplex                           NA
+## 2          Endogenous Control         Gapdh                           NA
+## 3 RQ Min/Max Confidence Level          95.0                           NA
+## 4            Reference Sample             7                           NA
+##   Target.Name Task Reporter Quencher RQ RQ.Min RQ.Max CT EQ.Ct.Mean EQ.Ct.SE
+## 1                                    NA     NA     NA            NA       NA
+## 2                                    NA     NA     NA            NA       NA
+## 3                                    NA     NA     NA            NA       NA
+## 4                                    NA     NA     NA            NA       NA
+##   Quantity Delta.Ct.Mean Delta.Delta.Ct Automatic.Ct.Threshold Ct.Threshold
+## 1       NA            NA             NA                                  NA
+## 2       NA            NA             NA                                  NA
+## 3       NA            NA             NA                                  NA
+## 4       NA            NA             NA                                  NA
+##   Automatic.Baseline Baseline.Start Baseline.End Efficiency Tm1 Comments Tm2
+## 1                                NA           NA         NA  NA       NA  NA
+## 2                                NA           NA         NA  NA       NA  NA
+## 3                                NA           NA         NA  NA       NA  NA
+## 4                                NA           NA         NA  NA       NA  NA
+##   Amp.Score Tm3 Cq.Conf MTP EXPFAIL NOISE NOAMP THOLDFAIL
+## 1        NA  NA      NA                                  
+## 2        NA  NA      NA                                  
+## 3        NA  NA      NA                                  
+## 4        NA  NA      NA
+\end{verbatim}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -438,119 +509,30 @@ What does this tell us about how RProjects and other funky things work?
 \begin{Highlighting}[]
 \CommentTok{\# table(dat$Well.Position)}
 \FunctionTok{mean}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{Delta.Ct.Mean, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
-\CommentTok{\#\textgreater{} [1] 13.08628}
-\FunctionTok{sd}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{Delta.Ct.Mean, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
-\CommentTok{\#\textgreater{} [1] 5.507596}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## [1] 13.08628
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sd}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{Delta.Ct.Mean, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5.507596
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \FunctionTok{hist}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{Delta.Ct.Mean)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-12-1.pdf}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{4}
-\item
-  Tidyverse approach
-\item
-  ggplot
-\end{enumerate}
-
-Tasks ready for next week:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  Outcome and predictor variables
-\item
-  Other studies with same sampling design
-\item
-  Other reference material.
-\item
-  Read a cool sampling design/issue paper
-\end{enumerate}
-
-Watch this short (ish video) as a summary of what you should understand so far.
-
-\hypertarget{sampling-design}{%
-\chapter{Sampling design}\label{sampling-design}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\#general packages used}
-\FunctionTok{library}\NormalTok{(tidyverse)}
-\FunctionTok{library}\NormalTok{(knitr)}
-\end{Highlighting}
-\end{Shaded}
-
-We should all know what these are and how to render a report in RMarkdown. Next we will produce a RMarkdown document for the question we have been working on ready to add data and other sampling design information.
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Outcome and predictor variables
-\item
-  Other study examples and code
-\item
-  Other studies with same sampling design
-\item
-  Other reference material.
-\item
-  Read a cool sampling design/issue paper
-\end{enumerate}
-
-\hypertarget{terrys-lecture-in-rmarkdown}{%
-\section{Terry's lecture in RMarkdown}\label{terrys-lecture-in-rmarkdown}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{"study\_design/Experimental{-}plan{-}workshop Terry Neeman 17 May 2002.pdf"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{study_design/Experimental-plan-workshop Terry Neeman 17 May 2002.pdf}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\#general packages used}
-\FunctionTok{library}\NormalTok{(tidyverse)}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{automation}{%
-\chapter{Automation}\label{automation}}
-
-What is special about using \texttt{README.Rmd} instead of just \texttt{README.md}?
-
-You can include R chunks like so:
-
-You'll still need to render \texttt{README.Rmd} regularly, to keep \texttt{README.md} up-to-date. \texttt{devtools::build\_readme()} is handy for this. You could also use GitHub Actions to re-render \texttt{README.Rmd} every time you push. An example workflow can be found here: \url{https://github.com/r-lib/actions/tree/v1/examples}.
-
-\hypertarget{rmarkdown-reports-1}{%
-\section{RMarkdown reports}\label{rmarkdown-reports-1}}
-
-We should all know what these are and how to render a report in RMarkdown. Next we will produce a RMarkdown document for the question we have been working on ready to add data and other sampling design information.
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Outcome and predictor variables
-\item
-  Other study examples and code
-\item
-  Other studies with same sampling design
-\item
-  Other reference material.
-\item
-  Read a cool sampling design/issue paper
-\end{enumerate}
-
-Watch this short (ish video) as a summary of what you should understand so far.
-
-What does this tell us about how RProjects and other funky things work?
+\includegraphics{_main_files/figure-latex/unnamed-chunk-11-1.pdf}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -578,15 +560,30 @@ What does this tell us about how RProjects and other funky things work?
 \begin{Highlighting}[]
 \CommentTok{\# table(dat$Well.Position)}
 \FunctionTok{mean}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{Delta.Ct.Mean, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
-\CommentTok{\#\textgreater{} [1] 13.08628}
-\FunctionTok{sd}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{Delta.Ct.Mean, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
-\CommentTok{\#\textgreater{} [1] 5.507596}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## [1] 13.08628
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sd}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{Delta.Ct.Mean, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5.507596
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \FunctionTok{hist}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{Delta.Ct.Mean)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-17-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-13-1.pdf}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -598,44 +595,74 @@ What does this tell us about how RProjects and other funky things work?
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{glimpse}\NormalTok{(dat)}
-\CommentTok{\#\textgreater{} Rows: 380}
-\CommentTok{\#\textgreater{} Columns: 35}
-\CommentTok{\#\textgreater{} $ Well                   \textless{}chr\textgreater{} "1", "2", "3", "4", "5", "6", "7", "8", "9", "1\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Well.Position          \textless{}chr\textgreater{} "A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8",\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Omit                   \textless{}chr\textgreater{} "false", "false", "false", "false", "false", "f\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Sample.Name            \textless{}chr\textgreater{} "1", "2", "3", "4", "5", "6", "7", "8", "9", "1\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Delta.Ct.SE            \textless{}lgl\textgreater{} NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Target.Name            \textless{}chr\textgreater{} "Gapdh", "Gapdh", "Gapdh", "Gapdh", "Gapdh", "G\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Task                   \textless{}chr\textgreater{} "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UN\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Reporter               \textless{}chr\textgreater{} "SYBR", "SYBR", "SYBR", "SYBR", "SYBR", "SYBR",\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Quencher               \textless{}chr\textgreater{} "None", "None", "None", "None", "None", "None",\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ RQ                     \textless{}dbl\textgreater{} NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ RQ.Min                 \textless{}dbl\textgreater{} NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ RQ.Max                 \textless{}dbl\textgreater{} NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ CT                     \textless{}chr\textgreater{} "12.909", "14.253", "13.532", "13.377", "14.249\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ EQ.Ct.Mean             \textless{}dbl\textgreater{} 12.909, 14.253, 13.532, 13.377, 14.249, 15.053,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ EQ.Ct.SE               \textless{}lgl\textgreater{} NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Quantity               \textless{}lgl\textgreater{} NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Delta.Ct.Mean          \textless{}dbl\textgreater{} NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Delta.Delta.Ct         \textless{}dbl\textgreater{} NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Automatic.Ct.Threshold \textless{}chr\textgreater{} "true", "true", "true", "true", "true", "true",\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Ct.Threshold           \textless{}dbl\textgreater{} 0.062, 0.062, 0.062, 0.062, 0.062, 0.062, 0.062\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Automatic.Baseline     \textless{}chr\textgreater{} "true", "true", "true", "true", "true", "true",\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Baseline.Start         \textless{}int\textgreater{} 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Baseline.End           \textless{}int\textgreater{} 9, 11, 10, 10, 11, 13, 10, 10, 11, 10, 9, 9, 10\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Efficiency             \textless{}lgl\textgreater{} NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Tm1                    \textless{}dbl\textgreater{} 84.395, 84.395, 84.395, 84.395, 84.395, 84.527,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Comments               \textless{}lgl\textgreater{} NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Tm2                    \textless{}dbl\textgreater{} NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Amp.Score              \textless{}dbl\textgreater{} 1.346, 1.345, 1.352, 1.349, 1.339, 1.356, 1.347\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Tm3                    \textless{}dbl\textgreater{} NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ Cq.Conf                \textless{}dbl\textgreater{} 0.920, 0.872, 0.930, 0.933, 0.974, 0.938, 0.924\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ MTP                    \textless{}chr\textgreater{} "N", "N", "N", "N", "N", "N", "N", "N", "N", "N\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ EXPFAIL                \textless{}chr\textgreater{} "N", "N", "N", "N", "N", "N", "N", "N", "N", "N\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ NOISE                  \textless{}chr\textgreater{} "N", "N", "N", "N", "N", "N", "N", "N", "N", "N\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ NOAMP                  \textless{}chr\textgreater{} "N", "N", "N", "N", "N", "N", "N", "N", "N", "N\textasciitilde{}}
-\CommentTok{\#\textgreater{} $ THOLDFAIL              \textless{}chr\textgreater{} "N", "N", "N", "N", "N", "N", "N", "N", "N", "N\textasciitilde{}}
+\FunctionTok{variable.names}\NormalTok{(dat)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "Well"                   "Well.Position"          "Omit"                  
+##  [4] "Sample.Name"            "Delta.Ct.SE"            "Target.Name"           
+##  [7] "Task"                   "Reporter"               "Quencher"              
+## [10] "RQ"                     "RQ.Min"                 "RQ.Max"                
+## [13] "CT"                     "EQ.Ct.Mean"             "EQ.Ct.SE"              
+## [16] "Quantity"               "Delta.Ct.Mean"          "Delta.Delta.Ct"        
+## [19] "Automatic.Ct.Threshold" "Ct.Threshold"           "Automatic.Baseline"    
+## [22] "Baseline.Start"         "Baseline.End"           "Efficiency"            
+## [25] "Tm1"                    "Comments"               "Tm2"                   
+## [28] "Amp.Score"              "Tm3"                    "Cq.Conf"               
+## [31] "MTP"                    "EXPFAIL"                "NOISE"                 
+## [34] "NOAMP"                  "THOLDFAIL"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#sample name}
+\CommentTok{\# table(dat$Sample.Name)}
+\FunctionTok{table}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{Target.Name)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##                   16s B Fragilis        Bft      Gapdh   Il-12p40      Il-18 
+##          4         47         47         47         47         47         47 
+##       Il-6      Il1-b 
+##         47         47
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(}\FunctionTok{as.numeric}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{CT), }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in mean(as.numeric(dat$CT), na.rm = TRUE): NAs introduced by coercion
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 24.87021
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#sumarise over Target Name and find n, mean, mode, median, sd, etc for each of the target names?}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\item
+  Nicer plots using \texttt{ggplot}
+\item
+  Tidyverse approach
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#tidy data}
+\CommentTok{\#tibble}
 \end{Highlighting}
 \end{Shaded}
 
@@ -644,15 +671,168 @@ What does this tell us about how RProjects and other funky things work?
 \setcounter{enumi}{5}
 \tightlist
 \item
-  Nicer plots using \texttt{ggplot}
+  ggplot
 \end{enumerate}
+
+Much easier to work this this and tidyverse
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  Read a cool sampling design/issue paper
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#general packages used}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+We should all know what these are and how to render a report in RMarkdown. Next we will produce a RMarkdown document for the question we have been working on ready to add data and other sampling design information.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Outcome and predictor variables
+\item
+  Other study examples and code
+\item
+  Other studies with same sampling design
+\item
+  Other reference material.
+\item
+  Read a cool sampling design/issue paper
+\end{enumerate}
+
+\hypertarget{power-analysis}{%
+\chapter{Power analysis}\label{power-analysis}}
+
+Watch this short (ish video) as a summary of what you should understand so far.
+What does this tell us about how RProjects and other funky things work?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(stats)}
+\FunctionTok{power.anova.test}\NormalTok{(}\AttributeTok{groups =} \DecValTok{4}\NormalTok{, }\AttributeTok{n =} \DecValTok{5}\NormalTok{, }\AttributeTok{between.var =} \DecValTok{1}\NormalTok{, }\AttributeTok{within.var =} \DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##      Balanced one-way analysis of variance power calculation 
+## 
+##          groups = 4
+##               n = 5
+##     between.var = 1
+##      within.var = 3
+##       sig.level = 0.05
+##           power = 0.3535594
+## 
+## NOTE: n is number in each group
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Power = 0.3535594}
+
+\FunctionTok{power.anova.test}\NormalTok{(}\AttributeTok{groups =} \DecValTok{4}\NormalTok{, }\AttributeTok{between.var =} \DecValTok{1}\NormalTok{, }\AttributeTok{within.var =} \DecValTok{3}\NormalTok{,}
+                 \AttributeTok{power =}\NormalTok{ .}\DecValTok{80}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##      Balanced one-way analysis of variance power calculation 
+## 
+##          groups = 4
+##               n = 11.92613
+##     between.var = 1
+##      within.var = 3
+##       sig.level = 0.05
+##           power = 0.8
+## 
+## NOTE: n is number in each group
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# n = 11.92613}
+
+\DocumentationTok{\#\# Assume we have prior knowledge of the group means:}
+\NormalTok{groupmeans }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{120}\NormalTok{, }\DecValTok{130}\NormalTok{, }\DecValTok{140}\NormalTok{, }\DecValTok{150}\NormalTok{)}
+\FunctionTok{power.anova.test}\NormalTok{(}\AttributeTok{groups =} \FunctionTok{length}\NormalTok{(groupmeans),}
+                 \AttributeTok{between.var =} \FunctionTok{var}\NormalTok{(groupmeans),}
+                 \AttributeTok{within.var =} \DecValTok{500}\NormalTok{, }\AttributeTok{power =}\NormalTok{ .}\DecValTok{90}\NormalTok{) }\CommentTok{\# n = 15.18834}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##      Balanced one-way analysis of variance power calculation 
+## 
+##          groups = 4
+##               n = 15.18834
+##     between.var = 166.6667
+##      within.var = 500
+##       sig.level = 0.05
+##           power = 0.9
+## 
+## NOTE: n is number in each group
+\end{verbatim}
+
+I can not find the additional code from last year but this is a slight variation on the project.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_app}\NormalTok{(}\StringTok{"https://mathiasharrer.shinyapps.io/power\_calculator\_meta\_analysis/"}\NormalTok{, }\AttributeTok{height =} \StringTok{"1500px"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## PhantomJS not found. You can install it with webshot::install_phantomjs(). If it is installed, please make sure the phantomjs executable can be found via the PATH variable.
+\end{verbatim}
+
+\hypertarget{meta-analysis-power-test}{%
+\section{Meta-analysis power test}\label{meta-analysis-power-test}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# The included numbers will per calculate power for a meta{-}analysis to detect a summary effect size of 0.2, with an average sample size per group of = 50, a total of 15 effect sizes, and moderate heterogeneity.}
+
+\NormalTok{es }\OtherTok{\textless{}{-}} \FloatTok{0.2} \CommentTok{\# Enter your summary effect size}
+\NormalTok{as }\OtherTok{\textless{}{-}} \DecValTok{50}  \CommentTok{\# Average per number per group}
+\NormalTok{mk }\OtherTok{\textless{}{-}} \DecValTok{15}  \CommentTok{\# Number of effect sizes}
+\NormalTok{hg }\OtherTok{\textless{}{-}} \DecValTok{1}   \CommentTok{\# Heterogeniety (".33" for small, "1" for moderate, \& "3" for large)}
+
+\NormalTok{eq1 }\OtherTok{\textless{}{-}}\NormalTok{ ((as}\SpecialCharTok{+}\NormalTok{as)}\SpecialCharTok{/}\NormalTok{((as)}\SpecialCharTok{*}\NormalTok{(as))) }\SpecialCharTok{+}\NormalTok{ ((es}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}\SpecialCharTok{/}\NormalTok{(}\DecValTok{2}\SpecialCharTok{*}\NormalTok{(as}\SpecialCharTok{+}\NormalTok{as)))}
+\NormalTok{eq2 }\OtherTok{\textless{}{-}}\NormalTok{ hg}\SpecialCharTok{*}\NormalTok{(eq1)}
+\NormalTok{eq3 }\OtherTok{\textless{}{-}}\NormalTok{ eq2}\SpecialCharTok{+}\NormalTok{eq1}
+\NormalTok{eq4 }\OtherTok{\textless{}{-}}\NormalTok{ eq3}\SpecialCharTok{/}\NormalTok{mk}
+\NormalTok{eq5 }\OtherTok{\textless{}{-}}\NormalTok{ (es}\SpecialCharTok{/}\FunctionTok{sqrt}\NormalTok{(eq4))}
+\NormalTok{Power }\OtherTok{\textless{}{-}}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{{-}}\FunctionTok{pnorm}\NormalTok{(}\FloatTok{1.96}\SpecialCharTok{{-}}\NormalTok{eq5)) }\CommentTok{\# Two{-}tailed}
+\NormalTok{Power}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.7798811
+\end{verbatim}
 
 \hypertarget{next-steps}{%
 \subsubsection{Next steps}\label{next-steps}}
 
+Collect some sample data and application.
+
+z
+
 One aspect that can be challenging when working with RMarkdown documents for manuscripts is references.
 
 The references for a bookdown or rmarkdown file can be included using the following information in the \texttt{yml} header of the index file.
+
 The references for a bookdown or rmarkdown file can be included using the following information in the yml header of the index file.
 
 \begin{verbatim}

@@ -1769,8 +1769,9 @@ pre code {
 <!-- rnb-text-begin -->
 <div id="rmarkdown-reports" class="section level1">
 <h1>RMarkdown reports</h1>
-<p>We should all know what these are and how to render a report in
-RMarkdown. Next we will produce a RMarkdown document for the question we
+<p>We should all know what these are and how to render/generate a report
+or document in RMarkdown.</p>
+<p>The next we will produce a RMarkdown document for the question we
 have been working on ready to add data and other sampling design
 information.</p>
 <!-- rnb-text-end -->
@@ -1809,22 +1810,91 @@ hist(dat$Delta.Ct.Mean)</code></pre>
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <ol start="5" style="list-style-type: decimal">
-<li><p>Tidyverse approach</p></li>
-<li><p>ggplot</p></li>
+<li>Tidyverse approach</li>
 </ol>
-<p>Tasks ready for next week:</p>
-<ol style="list-style-type: decimal">
-<li><p>Outcome and predictor variables</p></li>
-<li><p>Other studies with same sampling design</p></li>
-<li><p>Other reference material.</p></li>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI3RpZHkgZGF0YVxuI3RpYmJsZVxuXG5gYGAifQ== -->
+<pre class="r"><code>#tidy data
+#tibble
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<ol start="6" style="list-style-type: decimal">
+<li>ggplot</li>
+</ol>
+<p>Much easier to work this this and tidyverse</p>
+<ol start="7" style="list-style-type: decimal">
 <li><p>Read a cool sampling design/issue paper</p></li>
+<li><p>Power analysis</p></li>
 </ol>
-<p>Watch this short (ish video) as a summary of what you should
-understand so far.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucG93ZXIuYW5vdmEudGVzdChncm91cHMgPSBsZW5ndGgoZ3JvdXBtZWFucyksXG4gICAgICAgICAgICAgICAgIGJldHdlZW4udmFyID0gdmFyKGdyb3VwbWVhbnMpLFxuICAgICAgICAgICAgICAgICB3aXRoaW4udmFyID0gNTAwLCBwb3dlciA9IC45MCkgIyBuID0gMTUuMTg4MzRcblxuYGBgIn0= -->
+<pre class="r"><code>power.anova.test(groups = length(groupmeans),
+                 between.var = var(groupmeans),
+                 within.var = 500, power = .90) # n = 15.18834
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG4gICAgIEJhbGFuY2VkIG9uZS13YXkgYW5hbHlzaXMgb2YgdmFyaWFuY2UgcG93ZXIgY2FsY3VsYXRpb24gXG5cbiAgICAgICAgIGdyb3VwcyA9IDRcbiAgICAgICAgICAgICAgbiA9IDE1LjE4ODM0XG4gICAgYmV0d2Vlbi52YXIgPSAxNjYuNjY2N1xuICAgICB3aXRoaW4udmFyID0gNTAwXG4gICAgICBzaWcubGV2ZWwgPSAwLjA1XG4gICAgICAgICAgcG93ZXIgPSAwLjlcblxuTk9URTogbiBpcyBudW1iZXIgaW4gZWFjaCBncm91cFxuIn0= -->
+<pre><code>
+     Balanced one-way analysis of variance power calculation 
+
+         groups = 4
+              n = 15.18834
+    between.var = 166.6667
+     within.var = 500
+      sig.level = 0.05
+          power = 0.9
+
+NOTE: n is number in each group</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- Watch this short (ish video) as a summary of what you should understand so far. -->
+<ol start="8" style="list-style-type: decimal">
+<li>Power analysis</li>
+</ol>
+<div id="power-analysis" class="section level2">
+<h2>Power analysis</h2>
+<p>I can not find the additional code from last year but this is a
+slight variation on the project.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxua25pdHI6OmluY2x1ZGVfYXBwKFwiaHR0cHM6Ly9tYXRoaWFzaGFycmVyLnNoaW55YXBwcy5pby9wb3dlcl9jYWxjdWxhdG9yX21ldGFfYW5hbHlzaXMvXCIsIGhlaWdodCA9IFwiMTUwMHB4XCIpIFxuYGBgIn0= -->
+<pre class="r"><code>knitr::include_app(&quot;https://mathiasharrer.shinyapps.io/power_calculator_meta_analysis/&quot;, height = &quot;1500px&quot;) </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="meta-analysis-power-test" class="section level2">
+<h2>Meta-analysis power test</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBUaGUgaW5jbHVkZWQgbnVtYmVycyB3aWxsIHBlciBjYWxjdWxhdGUgcG93ZXIgZm9yIGEgbWV0YS1hbmFseXNpcyB0byBkZXRlY3QgYSBzdW1tYXJ5IGVmZmVjdCBzaXplIG9mIDAuMiwgd2l0aCBhbiBhdmVyYWdlIHNhbXBsZSBzaXplIHBlciBncm91cCBvZiA9IDUwLCBhIHRvdGFsIG9mIDE1IGVmZmVjdCBzaXplcywgYW5kIG1vZGVyYXRlIGhldGVyb2dlbmVpdHkuXG5cbmVzIDwtIDAuMiAjIEVudGVyIHlvdXIgc3VtbWFyeSBlZmZlY3Qgc2l6ZVxuYXMgPC0gNTAgICMgQXZlcmFnZSBwZXIgbnVtYmVyIHBlciBncm91cFxubWsgPC0gMTUgICMgTnVtYmVyIG9mIGVmZmVjdCBzaXplc1xuaGcgPC0gMSAgICMgSGV0ZXJvZ2VuaWV0eSAoXCIuMzNcIiBmb3Igc21hbGwsIFwiMVwiIGZvciBtb2RlcmF0ZSwgJiBcIjNcIiBmb3IgbGFyZ2UpXG5cbmVxMSA8LSAoKGFzK2FzKS8oKGFzKSooYXMpKSkgKyAoKGVzXjIpLygyKihhcythcykpKVxuZXEyIDwtIGhnKihlcTEpXG5lcTMgPC0gZXEyK2VxMVxuZXE0IDwtIGVxMy9ta1xuZXE1IDwtIChlcy9zcXJ0KGVxNCkpXG5Qb3dlciA8LSAoMS1wbm9ybSgxLjk2LWVxNSkpICMgVHdvLXRhaWxlZFxuUG93ZXJcbmBgYCJ9 -->
+<pre class="r"><code># The included numbers will per calculate power for a meta-analysis to detect a summary effect size of 0.2, with an average sample size per group of = 50, a total of 15 effect sizes, and moderate heterogeneity.
+
+es &lt;- 0.2 # Enter your summary effect size
+as &lt;- 50  # Average per number per group
+mk &lt;- 15  # Number of effect sizes
+hg &lt;- 1   # Heterogeniety (&quot;.33&quot; for small, &quot;1&quot; for moderate, &amp; &quot;3&quot; for large)
+
+eq1 &lt;- ((as+as)/((as)*(as))) + ((es^2)/(2*(as+as)))
+eq2 &lt;- hg*(eq1)
+eq3 &lt;- eq2+eq1
+eq4 &lt;- eq3/mk
+eq5 &lt;- (es/sqrt(eq4))
+Power &lt;- (1-pnorm(1.96-eq5)) # Two-tailed
+Power</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
+</div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkRhdGEgcmVwb3J0aW5nIGluIFJNYXJrZG93bi4iDQpzdWJ0aXRsZTogIiBBIHF1aWNrIGRlbW8iDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojIFJNYXJrZG93biByZXBvcnRzDQoNCldlIHNob3VsZCBhbGwga25vdyB3aGF0IHRoZXNlIGFyZSBhbmQgaG93IHRvIHJlbmRlciBhIHJlcG9ydCBpbiBSTWFya2Rvd24uIE5leHQgd2Ugd2lsbCBwcm9kdWNlIGEgUk1hcmtkb3duIGRvY3VtZW50IGZvciB0aGUgcXVlc3Rpb24gd2UgaGF2ZSBiZWVuIHdvcmtpbmcgb24gcmVhZHkgdG8gYWRkIGRhdGEgYW5kIG90aGVyIHNhbXBsaW5nIGRlc2lnbiBpbmZvcm1hdGlvbi4NCg0KYGBge3J9DQojZ2VuZXJhbCBwYWNrYWdlcyB1c2VkDQpsaWJyYXJ5KHRpZHl2ZXJzZSkNCmBgYA0KDQpXaGF0IGRvZXMgdGhpcyB0ZWxsIHVzIGFib3V0IGhvdyBSUHJvamVjdHMgYW5kIG90aGVyIGZ1bmt5IHRoaW5ncyB3b3JrPw0KDQozLiBEYXRhIGltcG9ydA0KDQpgYGB7cn0NCmRhdCA8LSByZWFkLmNzdigiZGF0YS9BbmFseXNpc19hcmRNb2RzLmNzdiIpDQpnbGltcHNlKGRhdCkNCmBgYA0KDQoNCjQuIERhdGEgdmlzdWFsaXNhdGlvbg0KDQpgYGB7cn0NCiMgdGFibGUoZGF0JFdlbGwuUG9zaXRpb24pDQptZWFuKGRhdCREZWx0YS5DdC5NZWFuLCBuYS5ybSA9IFRSVUUpDQpzZChkYXQkRGVsdGEuQ3QuTWVhbiwgbmEucm0gPSBUUlVFKQ0KDQpoaXN0KGRhdCREZWx0YS5DdC5NZWFuKQ0KYGBgDQoNCg0KNS4gVGlkeXZlcnNlIGFwcHJvYWNoDQoNCg0KDQo2LiAgICBnZ3Bsb3QNCg0KVGFza3MgcmVhZHkgZm9yIG5leHQgd2VlazoNCg0KMS4gT3V0Y29tZSBhbmQgcHJlZGljdG9yIHZhcmlhYmxlcw0KDQoNCg0KMy4gT3RoZXIgc3R1ZGllcyB3aXRoIHNhbWUgc2FtcGxpbmcgZGVzaWduDQoNCjUuIE90aGVyIHJlZmVyZW5jZSBtYXRlcmlhbC4NCg0KNy4gUmVhZCBhIGNvb2wgc2FtcGxpbmcgZGVzaWduL2lzc3VlIHBhcGVyDQoNCldhdGNoIHRoaXMgc2hvcnQgKGlzaCB2aWRlbykgYXMgYSBzdW1tYXJ5IG9mIHdoYXQgeW91IHNob3VsZCB1bmRlcnN0YW5kIHNvIGZhci4=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkRhdGEgcmVwb3J0aW5nIGluIFJNYXJrZG93bi4iDQpzdWJ0aXRsZTogIiBBIHF1aWNrIGRlbW8iDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojIFJNYXJrZG93biByZXBvcnRzDQoNCldlIHNob3VsZCBhbGwga25vdyB3aGF0IHRoZXNlIGFyZSBhbmQgaG93IHRvIHJlbmRlci9nZW5lcmF0ZSBhICByZXBvcnQgb3IgZG9jdW1lbnQgaW4gUk1hcmtkb3duLiANCg0KVGhlIG5leHQgd2Ugd2lsbCBwcm9kdWNlIGEgUk1hcmtkb3duIGRvY3VtZW50IGZvciB0aGUgcXVlc3Rpb24gd2UgaGF2ZSBiZWVuIHdvcmtpbmcgb24gcmVhZHkgdG8gYWRkIGRhdGEgYW5kIG90aGVyIHNhbXBsaW5nIGRlc2lnbiBpbmZvcm1hdGlvbi4NCg0KYGBge3J9DQojZ2VuZXJhbCBwYWNrYWdlcyB1c2VkDQpsaWJyYXJ5KHRpZHl2ZXJzZSkNCmBgYA0KDQpXaGF0IGRvZXMgdGhpcyB0ZWxsIHVzIGFib3V0IGhvdyBSUHJvamVjdHMgYW5kIG90aGVyIGZ1bmt5IHRoaW5ncyB3b3JrPw0KDQozLiBEYXRhIGltcG9ydA0KDQpgYGB7cn0NCmRhdCA8LSByZWFkLmNzdigiZGF0YS9BbmFseXNpc19hcmRNb2RzLmNzdiIpDQpnbGltcHNlKGRhdCkNCmBgYA0KDQoNCjQuIERhdGEgdmlzdWFsaXNhdGlvbg0KDQpgYGB7cn0NCiMgdGFibGUoZGF0JFdlbGwuUG9zaXRpb24pDQptZWFuKGRhdCREZWx0YS5DdC5NZWFuLCBuYS5ybSA9IFRSVUUpDQpzZChkYXQkRGVsdGEuQ3QuTWVhbiwgbmEucm0gPSBUUlVFKQ0KDQpoaXN0KGRhdCREZWx0YS5DdC5NZWFuKQ0KYGBgDQoNCg0KNS4gVGlkeXZlcnNlIGFwcHJvYWNoDQoNCmBgYHtyfQ0KI3RpZHkgZGF0YQ0KI3RpYmJsZQ0KDQpgYGANCg0KDQo2LiAgICBnZ3Bsb3QNCg0KTXVjaCBlYXNpZXIgdG8gd29yayB0aGlzIHRoaXMgYW5kIHRpZHl2ZXJzZQ0KDQoNCjcuIFJlYWQgYSBjb29sIHNhbXBsaW5nIGRlc2lnbi9pc3N1ZSBwYXBlcg0KDQoNCjguIFBvd2VyIGFuYWx5c2lzDQoNCmBgYHtyfQ0KbGlicmFyeShzdGF0cykNCnBvd2VyLmFub3ZhLnRlc3QoZ3JvdXBzID0gNCwgbiA9IDUsIGJldHdlZW4udmFyID0gMSwgd2l0aGluLnZhciA9IDMpDQojIFBvd2VyID0gMC4zNTM1NTk0DQoNCnBvd2VyLmFub3ZhLnRlc3QoZ3JvdXBzID0gNCwgYmV0d2Vlbi52YXIgPSAxLCB3aXRoaW4udmFyID0gMywNCiAgICAgICAgICAgICAgICAgcG93ZXIgPSAuODApDQojIG4gPSAxMS45MjYxMw0KDQojIyBBc3N1bWUgd2UgaGF2ZSBwcmlvciBrbm93bGVkZ2Ugb2YgdGhlIGdyb3VwIG1lYW5zOg0KZ3JvdXBtZWFucyA8LSBjKDEyMCwgMTMwLCAxNDAsIDE1MCkNCnBvd2VyLmFub3ZhLnRlc3QoZ3JvdXBzID0gbGVuZ3RoKGdyb3VwbWVhbnMpLA0KICAgICAgICAgICAgICAgICBiZXR3ZWVuLnZhciA9IHZhcihncm91cG1lYW5zKSwNCiAgICAgICAgICAgICAgICAgd2l0aGluLnZhciA9IDUwMCwgcG93ZXIgPSAuOTApICMgbiA9IDE1LjE4ODM0DQpgYGANCg0KDQo8IS0tIFdhdGNoIHRoaXMgc2hvcnQgKGlzaCB2aWRlbykgYXMgYSBzdW1tYXJ5IG9mIHdoYXQgeW91IHNob3VsZCB1bmRlcnN0YW5kIHNvIGZhci4gLS0+DQoNCjguIFBvd2VyIGFuYWx5c2lzDQoNCiMjIFBvd2VyIGFuYWx5c2lzDQoNCkkgY2FuIG5vdCBmaW5kIHRoZSBhZGRpdGlvbmFsIGNvZGUgZnJvbSBsYXN0IHllYXIgYnV0IHRoaXMgaXMgYSBzbGlnaHQgdmFyaWF0aW9uIG9uIHRoZSBwcm9qZWN0Lg0KDQpgYGB7cn0NCmtuaXRyOjppbmNsdWRlX2FwcCgiaHR0cHM6Ly9tYXRoaWFzaGFycmVyLnNoaW55YXBwcy5pby9wb3dlcl9jYWxjdWxhdG9yX21ldGFfYW5hbHlzaXMvIiwgaGVpZ2h0ID0gIjE1MDBweCIpIA0KYGBgDQoNCiMjIE1ldGEtYW5hbHlzaXMgcG93ZXIgdGVzdA0KDQpgYGB7cn0NCiMgVGhlIGluY2x1ZGVkIG51bWJlcnMgd2lsbCBwZXIgY2FsY3VsYXRlIHBvd2VyIGZvciBhIG1ldGEtYW5hbHlzaXMgdG8gZGV0ZWN0IGEgc3VtbWFyeSBlZmZlY3Qgc2l6ZSBvZiAwLjIsIHdpdGggYW4gYXZlcmFnZSBzYW1wbGUgc2l6ZSBwZXIgZ3JvdXAgb2YgPSA1MCwgYSB0b3RhbCBvZiAxNSBlZmZlY3Qgc2l6ZXMsIGFuZCBtb2RlcmF0ZSBoZXRlcm9nZW5laXR5Lg0KDQplcyA8LSAwLjIgIyBFbnRlciB5b3VyIHN1bW1hcnkgZWZmZWN0IHNpemUNCmFzIDwtIDUwICAjIEF2ZXJhZ2UgcGVyIG51bWJlciBwZXIgZ3JvdXANCm1rIDwtIDE1ICAjIE51bWJlciBvZiBlZmZlY3Qgc2l6ZXMNCmhnIDwtIDEgICAjIEhldGVyb2dlbmlldHkgKCIuMzMiIGZvciBzbWFsbCwgIjEiIGZvciBtb2RlcmF0ZSwgJiAiMyIgZm9yIGxhcmdlKQ0KDQplcTEgPC0gKChhcythcykvKChhcykqKGFzKSkpICsgKChlc14yKS8oMiooYXMrYXMpKSkNCmVxMiA8LSBoZyooZXExKQ0KZXEzIDwtIGVxMitlcTENCmVxNCA8LSBlcTMvbWsNCmVxNSA8LSAoZXMvc3FydChlcTQpKQ0KUG93ZXIgPC0gKDEtcG5vcm0oMS45Ni1lcTUpKSAjIFR3by10YWlsZWQNClBvd2VyDQpgYGANCg0K</div>
 
 
 

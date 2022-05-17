@@ -11,6 +11,7 @@ site: bookdown::bookdown_site
 documentclass: book
 ---
 
-# index 
+Resources for class 2022 and future 8700 classes
 
-ss.
+# Contents 
+

@@ -11,6 +11,7 @@ knitr::write_bib(c(
 ```
 
 The references for a bookdown or rmarkdown file can be included using the following information in the `yml` header of the index file.
+
 The references for a bookdown or rmarkdown file can be included using the following information in the yml header of the index file.
 
 ```
