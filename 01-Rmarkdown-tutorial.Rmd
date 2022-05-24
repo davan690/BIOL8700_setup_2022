@@ -1,8 +1,22 @@
----
-title: RMarkdown tips and tricks
----
+<!-- # --- -->
+<!-- # title: RMarkdown tips and tricks -->
+<!-- # --- -->
+
+# Packages needed
 
 Resources for class 2022 and future 8700 classes
+
+```{r}
+library(rmarkdown)
+library(rticles)
+library(bookdown)
+library(bookdownplus)
+```
+
+
+## Keeping your book upto date
+
+
 
 
 

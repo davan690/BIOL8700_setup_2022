@@ -1,10 +1,6 @@
----
-title: "Data reporting in RMarkdown."
-subtitle: " A quick demo"
-output: html_notebook
----
+# Descriptive information
 
-# RMarkdown reports
+As we have discussed there will and are a collection of attributes that your research will have without/before collecting data. These things are important for prelimary analysis and things like power analysis. This chapter helps create descriptive statistics for our research.
 
 We should all know what these are and how to render/generate a  report or document in RMarkdown. 
 
@@ -15,42 +11,108 @@ The next we will produce a RMarkdown document for the question we have been work
 library(tidyverse)
 ```
 
+## Importing data
+
+From the model above it is possible to generate a dataset to produce a model fit and outcomes generated.
+
+```{r}
+datRawIn <- read.csv(here::here("notes2022/data/Analysis_ardMods.csv"))
+```
+
+Select variables from dataset and check the numerical structure is correct in R (numerical, factor etc).
+
+```{r eval = FALSE}
+# 3what response
+responseACT <- c(datRawIn$Delta.Ct.Mean)
+responseACT2 <- c(datRawIn$EQ.Ct.Mean)
+
+
+ p1 <- hist(responseACT)
+ p2 <- hist(responseACT2)
+ 
+ par(mfrow = c(2,2))
+ hist(responseACT2)
+ hist(responseACT)
+```
+
 What does this tell us about how RProjects and other funky things work?
 
 3. Data import
 
 ```{r}
-dat <- read.csv("data/Analysis_ardMods.csv")
+# dat <- read.csv("data/Analysis_ardMods.csv")
+dat <- read.csv("notes2022/data/AnalysisSimple2.csv")
+
 glimpse(dat)
+
 variable.names(dat)
 
-length(unique(dat$Well.Position))
 
-# outcome <- dat$
+dat1 <- dat %>%
+  select(CT,NormY, treatment)
 
-table(dat$Omit)
+dat2 <- dat1 %>%
+          mutate(treatment = as.factor(treatment))
+   
+glimpse(dat2)       
 
-removedData <- dat %>%
-  filter(Omit != "false")
+table(dat2$treatment)
+levels(dat2$treatment)
 
-head(removedData)
+table(dat2$NormY)
+levels(dat2$NormY)
+
+hist(dat2$NormY)
+hist(dat2$CT)
+
+# removedData <- dat %>%
+#   filter(Omit != "false")
+# # length(unique(dat$Well.Position))
+# # outcome <- dat$
+# table(dat$Omit)
+# head(removedData)
 ```
 
-
-4. Data visualisation
+#### Visualising data
 
 ```{r}
-# table(dat$Well.Position)
-mean(dat$Delta.Ct.Mean, na.rm = TRUE)
-sd(dat$Delta.Ct.Mean, na.rm = TRUE)
 
-hist(dat$Delta.Ct.Mean)
 ```
+
+Data visualisation
+
+```{r}
+variable.names(dat2)
+
+p1 <- ggplot(dat) +
+  # geom_boxplot(aes(x = treatment, y = NormY),outlier.size = 0) +
+  geom_jitter(aes(x = treatment, y = NormY), size = 3, colour = "orange", alpha = 0.7, width = 0.1) +
+  theme_bw() + 
+  theme_classic() +
+  xlab("X") +
+  ggtitle("test figure 1", subtitle = "small")
+
+
+p1
+# # table(dat$Well.Position)
+# mean(dat$Delta.Ct.Mean, na.rm = TRUE)
+# sd(dat$Delta.Ct.Mean, na.rm = TRUE)
+# 
+# hist(dat$Delta.Ct.Mean)
+```
+
+### Scatter plot
+
+```{r}
+
+```
+
+
 
 3. Data import
 
 ```{r}
-dat <- read.csv("data/Analysis_ardMods.csv")
+# dat <- read.csv("data/Analysis_ardMods.csv")
 ```
 
 
@@ -58,28 +120,29 @@ dat <- read.csv("data/Analysis_ardMods.csv")
 
 ```{r}
 # table(dat$Well.Position)
-mean(dat$Delta.Ct.Mean, na.rm = TRUE)
-sd(dat$Delta.Ct.Mean, na.rm = TRUE)
-
-hist(dat$Delta.Ct.Mean)
+# mean(dat$Delta.Ct.Mean, na.rm = TRUE)
+# sd(dat$Delta.Ct.Mean, na.rm = TRUE)
+# 
+# hist(dat$Delta.Ct.Mean)
 ```
 
 
 5. Tidyverse approach
 
 ```{r}
-variable.names(dat)
-
-#sample name
-# table(dat$Sample.Name)
-table(dat$Target.Name)
-mean(as.numeric(dat$CT), na.rm = TRUE)
+# variable.names(dat)
+# 
+# #sample name
+# # table(dat$Sample.Name)
+# table(dat$Target.Name)
+# mean(as.numeric(dat$CT), na.rm = TRUE)
 
 ##sumarise over Target Name and find n, mean, mode, median, sd, etc for each of the target names?
 
 ```
 
 6. Nicer plots using `ggplot`
+
 
 5. Tidyverse approach
 
@@ -96,3 +159,11 @@ Much easier to work this this and tidyverse
 
 
 7. Read a cool sampling design/issue paper
+
+#### Reporting
+
+```{r}
+
+```
+
+

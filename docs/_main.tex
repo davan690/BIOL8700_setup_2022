@@ -36,7 +36,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={Data reporting in RMarkdown.},
+  pdftitle={A Minimal Book Example for BIOL8700},
   pdfauthor={Rachael Remington; Anthony Davidson},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
@@ -115,14 +115,7 @@
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
 
-\title{Data reporting in RMarkdown.}
-\usepackage{etoolbox}
-\makeatletter
-\providecommand{\subtitle}[1]{% add subtitle to \maketitle
-  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
-}
-\makeatother
-\subtitle{A quick demo}
+\title{A Minimal Book Example for BIOL8700}
 \author{Rachael Remington; Anthony Davidson}
 \date{2022-05-24}
 
@@ -138,7 +131,22 @@ Resources for class 2022 and future BIOL8700 classes
 \hypertarget{contents}{%
 \chapter{Contents}\label{contents}}
 
+\hypertarget{packages-needed}{%
+\chapter{Packages needed}\label{packages-needed}}
+
 Resources for class 2022 and future 8700 classes
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(rmarkdown)}
+\FunctionTok{library}\NormalTok{(rticles)}
+\FunctionTok{library}\NormalTok{(bookdown)}
+\FunctionTok{library}\NormalTok{(bookdownplus)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{keeping-your-book-upto-date}{%
+\section{Keeping your book upto date}\label{keeping-your-book-upto-date}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -316,13 +324,15 @@ TIP: Start thinking about how you will analyse your data: ``what statistical tes
 \hypertarget{sampling-design}{%
 \chapter{Sampling design}\label{sampling-design}}
 
-Outcome vs experimental factors matter and how we contruct models is directly related to the underlying structure of the data we have collected.
+Outcome vs experimental factors matter. How we construct models is directly related to the underlying structure of the data we have collected.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\#general packages used}
 \FunctionTok{library}\NormalTok{(tidyverse)}
 \FunctionTok{library}\NormalTok{(knitr)}
+\FunctionTok{library}\NormalTok{(gridExtra)}
+\FunctionTok{library}\NormalTok{(here)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -337,7 +347,7 @@ Understanding variance is very important for building statistical models. But wh
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{study_experiment_design/Experimental-plan-workshop Terry Neeman 17 May 2002.pdf}
+\begin{center}\includegraphics{study_experiment_design/Experimental-plan-workshop Terry Neeman 17 May 2002} \end{center}
 
 We should all know what these are and how to render a report in RMarkdown. Next we will produce a RMarkdown document for the question we have been working on ready to add data and other sampling design information.
 
@@ -360,74 +370,32 @@ What will the actual design look like? How are the treatments and samples laid o
 \hypertarget{model-selection}{%
 \subsection{Model selection}\label{model-selection}}
 
-\[ null model = lm(activity = 0) \]
+Defining models and the notation associated with the aims and hypotheses of the research project is an important part of communicating reproducing results.
+
+\hypertarget{model-construction}{%
+\subsubsection{Model construction}\label{model-construction}}
+
+Went we are testing hypothesis we can only disprove the null hypothesis. To do this we can fit a series of linear models increasing in complexity as we ask our research questions.
+
+\hypertarget{null-model}{%
+\paragraph{Null model}\label{null-model}}
+
+In statistical tests the null model can be defined as almost anything however most commonly this is the simplist model that assumes no relationship between the outcome and the treatments.
+
+\[ null model: lm(predictor = 0) \]
+\#\#\#\#\# Different mean
+
+\hypertarget{interaction}{%
+\paragraph{Interaction}\label{interaction}}
+
 More complex model.
 
 \[ model_1 = lm(activity \equiv GBP8 + (1|litter) + (1|mouseID)) \]
 
-\hypertarget{importing-data}{%
-\subsection{Importing data}\label{importing-data}}
+\hypertarget{descriptive-information}{%
+\chapter{Descriptive information}\label{descriptive-information}}
 
-From the model above it is possible to generate a dataset to produce a model fit and outcomes generated.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(gridExtra)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-## Attaching package: 'gridExtra'
-\end{verbatim}
-
-\begin{verbatim}
-## The following object is masked from 'package:dplyr':
-## 
-##     combine
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dat }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"data/Analysis\_ardMods.csv"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-Select variables from dataset and check the numerical structure is correct in R (numerical, factor etc).
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# 3what response}
-\NormalTok{responseACT }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{Delta.Ct.Mean)}
-\NormalTok{responseACT2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{EQ.Ct.Mean)}
-
-
-\NormalTok{ p1 }\OtherTok{\textless{}{-}} \FunctionTok{hist}\NormalTok{(responseACT)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{_main_files/figure-latex/unnamed-chunk-13-1.pdf}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{ p2 }\OtherTok{\textless{}{-}} \FunctionTok{hist}\NormalTok{(responseACT2)}
- 
- \FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
- \FunctionTok{hist}\NormalTok{(responseACT2)}
- \FunctionTok{hist}\NormalTok{(responseACT)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{_main_files/figure-latex/unnamed-chunk-13-2.pdf}
-
-\hypertarget{visualising-data}{%
-\subsubsection{Visualising data}\label{visualising-data}}
-
-\hypertarget{reporting}{%
-\subsubsection{Reporting}\label{reporting}}
-
-\hypertarget{rmarkdown-reports}{%
-\chapter{RMarkdown reports}\label{rmarkdown-reports}}
+As we have discussed there will and are a collection of attributes that your research will have without/before collecting data. These things are important for prelimary analysis and things like power analysis. This chapter helps create descriptive statistics for our research.
 
 We should all know what these are and how to render/generate a report or document in RMarkdown.
 
@@ -437,6 +405,35 @@ The next we will produce a RMarkdown document for the question we have been work
 \begin{Highlighting}[]
 \CommentTok{\#general packages used}
 \FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{importing-data}{%
+\section{Importing data}\label{importing-data}}
+
+From the model above it is possible to generate a dataset to produce a model fit and outcomes generated.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datRawIn }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(here}\SpecialCharTok{::}\FunctionTok{here}\NormalTok{(}\StringTok{"notes2022/data/Analysis\_ardMods.csv"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+Select variables from dataset and check the numerical structure is correct in R (numerical, factor etc).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 3what response}
+\NormalTok{responseACT }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(datRawIn}\SpecialCharTok{$}\NormalTok{Delta.Ct.Mean)}
+\NormalTok{responseACT2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(datRawIn}\SpecialCharTok{$}\NormalTok{EQ.Ct.Mean)}
+
+
+\NormalTok{ p1 }\OtherTok{\textless{}{-}} \FunctionTok{hist}\NormalTok{(responseACT)}
+\NormalTok{ p2 }\OtherTok{\textless{}{-}} \FunctionTok{hist}\NormalTok{(responseACT2)}
+ 
+ \FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+ \FunctionTok{hist}\NormalTok{(responseACT2)}
+ \FunctionTok{hist}\NormalTok{(responseACT)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -452,49 +449,29 @@ What does this tell us about how RProjects and other funky things work?
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{dat }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"data/Analysis\_ardMods.csv"}\NormalTok{)}
+\CommentTok{\# dat \textless{}{-} read.csv("data/Analysis\_ardMods.csv")}
+\NormalTok{dat }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"notes2022/data/AnalysisSimple2.csv"}\NormalTok{)}
+
 \FunctionTok{glimpse}\NormalTok{(dat)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## Rows: 380
-## Columns: 35
-## $ Well                   <chr> "1", "2", "3", "4", "5", "6", "7", "8", "9", "1~
-## $ Well.Position          <chr> "A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8",~
-## $ Omit                   <chr> "false", "false", "false", "false", "false", "f~
-## $ Sample.Name            <chr> "1", "2", "3", "4", "5", "6", "7", "8", "9", "1~
-## $ Delta.Ct.SE            <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
-## $ Target.Name            <chr> "Gapdh", "Gapdh", "Gapdh", "Gapdh", "Gapdh", "G~
-## $ Task                   <chr> "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UN~
-## $ Reporter               <chr> "SYBR", "SYBR", "SYBR", "SYBR", "SYBR", "SYBR",~
-## $ Quencher               <chr> "None", "None", "None", "None", "None", "None",~
-## $ RQ                     <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
-## $ RQ.Min                 <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
-## $ RQ.Max                 <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
-## $ CT                     <chr> "12.909", "14.253", "13.532", "13.377", "14.249~
-## $ EQ.Ct.Mean             <dbl> 12.909, 14.253, 13.532, 13.377, 14.249, 15.053,~
-## $ EQ.Ct.SE               <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
-## $ Quantity               <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
-## $ Delta.Ct.Mean          <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
-## $ Delta.Delta.Ct         <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
-## $ Automatic.Ct.Threshold <chr> "true", "true", "true", "true", "true", "true",~
-## $ Ct.Threshold           <dbl> 0.062, 0.062, 0.062, 0.062, 0.062, 0.062, 0.062~
-## $ Automatic.Baseline     <chr> "true", "true", "true", "true", "true", "true",~
-## $ Baseline.Start         <int> 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,~
-## $ Baseline.End           <int> 9, 11, 10, 10, 11, 13, 10, 10, 11, 10, 9, 9, 10~
-## $ Efficiency             <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
-## $ Tm1                    <dbl> 84.395, 84.395, 84.395, 84.395, 84.395, 84.527,~
-## $ Comments               <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
-## $ Tm2                    <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
-## $ Amp.Score              <dbl> 1.346, 1.345, 1.352, 1.349, 1.339, 1.356, 1.347~
-## $ Tm3                    <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
-## $ Cq.Conf                <dbl> 0.920, 0.872, 0.930, 0.933, 0.974, 0.938, 0.924~
-## $ MTP                    <chr> "N", "N", "N", "N", "N", "N", "N", "N", "N", "N~
-## $ EXPFAIL                <chr> "N", "N", "N", "N", "N", "N", "N", "N", "N", "N~
-## $ NOISE                  <chr> "N", "N", "N", "N", "N", "N", "N", "N", "N", "N~
-## $ NOAMP                  <chr> "N", "N", "N", "N", "N", "N", "N", "N", "N", "N~
-## $ THOLDFAIL              <chr> "N", "N", "N", "N", "N", "N", "N", "N", "N", "N~
+## Rows: 18
+## Columns: 13
+## $ ï..qPCR.ID  <chr> "Sample 1", "Sample 2", "Sample 3", "Sample 4", "Sample 5"~
+## $ Sample.ID   <chr> "Ab39.4-4", "Ab39.4-5", "Ab39.4-6", "Ab39.4-7", "Ab39.4-8"~
+## $ Gapdh.CT    <dbl> 12.90898, 14.25320, 13.53162, 13.37721, 14.24936, 15.05268~
+## $ IL.12p40.CT <dbl> 29.03335, 29.49289, 29.35403, 30.03361, 28.45837, 29.93511~
+## $ DeltaCT     <dbl> 16.12437, 15.23969, 15.82242, 16.65640, 14.20900, 14.88243~
+## $ Yform       <dbl> 1.39985e-05, 2.58461e-05, 1.72575e-05, 9.68108e-06, 5.2803~
+## $ NormY       <dbl> 1.3998531, 2.5846142, 1.7257488, 0.9681077, 5.2803716, 3.3~
+## $ CT          <dbl> 12.90898, 14.25320, 13.53162, 13.37721, 14.24936, 15.05268~
+## $ IL.6.CT     <dbl> 24.87968, 30.88497, 25.32136, 22.90003, 26.01840, 27.08113~
+## $ K.J         <dbl> 11.970696, 16.631767, 11.789745, 9.522829, 11.769031, 12.0~
+## $ Yform.1     <dbl> 0.0002491500, 0.0000098478, 0.0002824440, 0.0013593860, 0.~
+## $ NormY.1     <dbl> 0.249150312, 0.009847804, 0.282444495, 1.359386108, 0.2865~
+## $ treatment   <chr> "red", "red", "red", "red", "red", "blue", "blue", "blue",~
 \end{verbatim}
 
 \begin{Shaded}
@@ -504,117 +481,150 @@ What does this tell us about how RProjects and other funky things work?
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "Well"                   "Well.Position"          "Omit"                  
-##  [4] "Sample.Name"            "Delta.Ct.SE"            "Target.Name"           
-##  [7] "Task"                   "Reporter"               "Quencher"              
-## [10] "RQ"                     "RQ.Min"                 "RQ.Max"                
-## [13] "CT"                     "EQ.Ct.Mean"             "EQ.Ct.SE"              
-## [16] "Quantity"               "Delta.Ct.Mean"          "Delta.Delta.Ct"        
-## [19] "Automatic.Ct.Threshold" "Ct.Threshold"           "Automatic.Baseline"    
-## [22] "Baseline.Start"         "Baseline.End"           "Efficiency"            
-## [25] "Tm1"                    "Comments"               "Tm2"                   
-## [28] "Amp.Score"              "Tm3"                    "Cq.Conf"               
-## [31] "MTP"                    "EXPFAIL"                "NOISE"                 
-## [34] "NOAMP"                  "THOLDFAIL"
+##  [1] "ï..qPCR.ID"  "Sample.ID"   "Gapdh.CT"    "IL.12p40.CT" "DeltaCT"    
+##  [6] "Yform"       "NormY"       "CT"          "IL.6.CT"     "K.J"        
+## [11] "Yform.1"     "NormY.1"     "treatment"
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{length}\NormalTok{(}\FunctionTok{unique}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{Well.Position))}
+\NormalTok{dat1 }\OtherTok{\textless{}{-}}\NormalTok{ dat }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(CT,NormY, treatment)}
+
+\NormalTok{dat2 }\OtherTok{\textless{}{-}}\NormalTok{ dat1 }\SpecialCharTok{\%\textgreater{}\%}
+          \FunctionTok{mutate}\NormalTok{(}\AttributeTok{treatment =} \FunctionTok{as.factor}\NormalTok{(treatment))}
+   
+\FunctionTok{glimpse}\NormalTok{(dat2)       }
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 380
+## Rows: 18
+## Columns: 3
+## $ CT        <dbl> 12.90898, 14.25320, 13.53162, 13.37721, 14.24936, 15.05268, ~
+## $ NormY     <dbl> 1.3998531, 2.5846142, 1.7257488, 0.9681077, 5.2803716, 3.310~
+## $ treatment <fct> red, red, red, red, red, blue, blue, blue, blue, blue, blue,~
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# outcome \textless{}{-} dat$}
-
-\FunctionTok{table}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{Omit)}
+\FunctionTok{table}\NormalTok{(dat2}\SpecialCharTok{$}\NormalTok{treatment)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
 ## 
-##       false 
-##     4   376
+## blue  red 
+##    9    9
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{removedData }\OtherTok{\textless{}{-}}\NormalTok{ dat }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{filter}\NormalTok{(Omit }\SpecialCharTok{!=} \StringTok{"false"}\NormalTok{)}
-
-\FunctionTok{head}\NormalTok{(removedData)}
+\FunctionTok{levels}\NormalTok{(dat2}\SpecialCharTok{$}\NormalTok{treatment)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##                          Well Well.Position Omit Sample.Name Delta.Ct.SE
-## 1               Analysis Type    Singleplex                           NA
-## 2          Endogenous Control         Gapdh                           NA
-## 3 RQ Min/Max Confidence Level          95.0                           NA
-## 4            Reference Sample             7                           NA
-##   Target.Name Task Reporter Quencher RQ RQ.Min RQ.Max CT EQ.Ct.Mean EQ.Ct.SE
-## 1                                    NA     NA     NA            NA       NA
-## 2                                    NA     NA     NA            NA       NA
-## 3                                    NA     NA     NA            NA       NA
-## 4                                    NA     NA     NA            NA       NA
-##   Quantity Delta.Ct.Mean Delta.Delta.Ct Automatic.Ct.Threshold Ct.Threshold
-## 1       NA            NA             NA                                  NA
-## 2       NA            NA             NA                                  NA
-## 3       NA            NA             NA                                  NA
-## 4       NA            NA             NA                                  NA
-##   Automatic.Baseline Baseline.Start Baseline.End Efficiency Tm1 Comments Tm2
-## 1                                NA           NA         NA  NA       NA  NA
-## 2                                NA           NA         NA  NA       NA  NA
-## 3                                NA           NA         NA  NA       NA  NA
-## 4                                NA           NA         NA  NA       NA  NA
-##   Amp.Score Tm3 Cq.Conf MTP EXPFAIL NOISE NOAMP THOLDFAIL
-## 1        NA  NA      NA                                  
-## 2        NA  NA      NA                                  
-## 3        NA  NA      NA                                  
-## 4        NA  NA      NA
+## [1] "blue" "red"
 \end{verbatim}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{3}
-\tightlist
-\item
-  Data visualisation
-\end{enumerate}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# table(dat$Well.Position)}
-\FunctionTok{mean}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{Delta.Ct.Mean, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{table}\NormalTok{(dat2}\SpecialCharTok{$}\NormalTok{NormY)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 13.08628
+## 
+## 0.968107711 1.399853134 1.725748792 2.347926871 2.521406058 2.584614246 
+##           1           1           1           1           1           1 
+## 2.941109452 3.112983596 3.310870251  4.15262465 5.170244383 5.280371649 
+##           1           1           1           1           1           1 
+## 7.145824462  7.43600363 9.711078137  11.0225451 13.68043761 29.95071366 
+##           1           1           1           1           1           1
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{sd}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{Delta.Ct.Mean, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{levels}\NormalTok{(dat2}\SpecialCharTok{$}\NormalTok{NormY)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 5.507596
+## NULL
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{hist}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{Delta.Ct.Mean)}
+\FunctionTok{hist}\NormalTok{(dat2}\SpecialCharTok{$}\NormalTok{NormY)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-16-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{hist}\NormalTok{(dat2}\SpecialCharTok{$}\NormalTok{CT)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-16-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# removedData \textless{}{-} dat \%\textgreater{}\%}
+\CommentTok{\#   filter(Omit != "false")}
+\CommentTok{\# \# length(unique(dat$Well.Position))}
+\CommentTok{\# \# outcome \textless{}{-} dat$}
+\CommentTok{\# table(dat$Omit)}
+\CommentTok{\# head(removedData)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{visualising-data}{%
+\subsubsection{Visualising data}\label{visualising-data}}
+
+Data visualisation
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{variable.names}\NormalTok{(dat2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "CT"        "NormY"     "treatment"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p1 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(dat) }\SpecialCharTok{+}
+  \CommentTok{\# geom\_boxplot(aes(x = treatment, y = NormY),outlier.size = 0) +}
+  \FunctionTok{geom\_jitter}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ treatment, }\AttributeTok{y =}\NormalTok{ NormY), }\AttributeTok{size =} \DecValTok{3}\NormalTok{, }\AttributeTok{colour =} \StringTok{"orange"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.7}\NormalTok{, }\AttributeTok{width =} \FloatTok{0.1}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+} 
+  \FunctionTok{theme\_classic}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{xlab}\NormalTok{(}\StringTok{"X"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"test figure 1"}\NormalTok{, }\AttributeTok{subtitle =} \StringTok{"small"}\NormalTok{)}
+
+
+\NormalTok{p1}
 \end{Highlighting}
 \end{Shaded}
 
 \includegraphics{_main_files/figure-latex/unnamed-chunk-18-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# \# table(dat$Well.Position)}
+\CommentTok{\# mean(dat$Delta.Ct.Mean, na.rm = TRUE)}
+\CommentTok{\# sd(dat$Delta.Ct.Mean, na.rm = TRUE)}
+\CommentTok{\# }
+\CommentTok{\# hist(dat$Delta.Ct.Mean)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{scatter-plot}{%
+\subsection{Scatter plot}\label{scatter-plot}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -626,7 +636,7 @@ What does this tell us about how RProjects and other funky things work?
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{dat }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"data/Analysis\_ardMods.csv"}\NormalTok{)}
+\CommentTok{\# dat \textless{}{-} read.csv("data/Analysis\_ardMods.csv")}
 \end{Highlighting}
 \end{Shaded}
 
@@ -641,31 +651,12 @@ What does this tell us about how RProjects and other funky things work?
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# table(dat$Well.Position)}
-\FunctionTok{mean}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{Delta.Ct.Mean, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\CommentTok{\# mean(dat$Delta.Ct.Mean, na.rm = TRUE)}
+\CommentTok{\# sd(dat$Delta.Ct.Mean, na.rm = TRUE)}
+\CommentTok{\# }
+\CommentTok{\# hist(dat$Delta.Ct.Mean)}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## [1] 13.08628
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{sd}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{Delta.Ct.Mean, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 5.507596
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{hist}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{Delta.Ct.Mean)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{_main_files/figure-latex/unnamed-chunk-20-1.pdf}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -677,57 +668,13 @@ What does this tell us about how RProjects and other funky things work?
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{variable.names}\NormalTok{(dat)}
-\end{Highlighting}
-\end{Shaded}
+\CommentTok{\# variable.names(dat)}
+\CommentTok{\# }
+\CommentTok{\# \#sample name}
+\CommentTok{\# \# table(dat$Sample.Name)}
+\CommentTok{\# table(dat$Target.Name)}
+\CommentTok{\# mean(as.numeric(dat$CT), na.rm = TRUE)}
 
-\begin{verbatim}
-##  [1] "Well"                   "Well.Position"          "Omit"                  
-##  [4] "Sample.Name"            "Delta.Ct.SE"            "Target.Name"           
-##  [7] "Task"                   "Reporter"               "Quencher"              
-## [10] "RQ"                     "RQ.Min"                 "RQ.Max"                
-## [13] "CT"                     "EQ.Ct.Mean"             "EQ.Ct.SE"              
-## [16] "Quantity"               "Delta.Ct.Mean"          "Delta.Delta.Ct"        
-## [19] "Automatic.Ct.Threshold" "Ct.Threshold"           "Automatic.Baseline"    
-## [22] "Baseline.Start"         "Baseline.End"           "Efficiency"            
-## [25] "Tm1"                    "Comments"               "Tm2"                   
-## [28] "Amp.Score"              "Tm3"                    "Cq.Conf"               
-## [31] "MTP"                    "EXPFAIL"                "NOISE"                 
-## [34] "NOAMP"                  "THOLDFAIL"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\#sample name}
-\CommentTok{\# table(dat$Sample.Name)}
-\FunctionTok{table}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{Target.Name)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-##                   16s B Fragilis        Bft      Gapdh   Il-12p40      Il-18 
-##          4         47         47         47         47         47         47 
-##       Il-6      Il1-b 
-##         47         47
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{mean}\NormalTok{(}\FunctionTok{as.numeric}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{CT), }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Warning in mean(as.numeric(dat$CT), na.rm = TRUE): NAs introduced by coercion
-\end{verbatim}
-
-\begin{verbatim}
-## [1] 24.87021
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \DocumentationTok{\#\#sumarise over Target Name and find n, mean, mode, median, sd, etc for each of the target names?}
 \end{Highlighting}
 \end{Shaded}
@@ -765,6 +712,9 @@ Much easier to work this this and tidyverse
 \item
   Read a cool sampling design/issue paper
 \end{enumerate}
+
+\hypertarget{reporting}{%
+\subsubsection{Reporting}\label{reporting}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -914,11 +864,6 @@ z
 One aspect that can be challenging when working with RMarkdown documents for manuscripts is references.
 
 The references for a bookdown or rmarkdown file can be included using the following information in the \texttt{yml} header of the index file.
-
-The references for a bookdown or rmarkdown file can be included using the following information in the yml header of the index file.
-
-\begin{verbatim}
-\end{verbatim}
 
 \hypertarget{manual-references}{%
 \section{Manual references}\label{manual-references}}

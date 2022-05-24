@@ -3,7 +3,7 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li><a href="./">"Applications of RMarkdown for research"</a></li>
+        <li><a href="./">Applications of RMarkdown for research</a></li>
       after: |
         <li><a href="https://github.com/davan690/BIOL8700_setup_2022" target="blank">Published with bookdown</a></li>
     edit: https://github.com/davan690/BIOL8700_setup_2022/edit/main/%s

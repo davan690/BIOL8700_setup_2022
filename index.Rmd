@@ -15,3 +15,14 @@ Resources for class 2022 and future BIOL8700 classes
 
 # Contents 
 
+<!-- ## Experimental plan -->
+
+<!-- ## Sampling design -->
+
+<!-- ## Descriptive statistics -->
+
+<!-- ## Power analysis -->
+
+<!-- ## Reproducible reporting -->
+
+<!-- ## Referencing -->
