@@ -9,13 +9,19 @@ library(tidyverse)
 library(jtools)
 ```
 
+This workshop will help you apply the principles taught in BIOL8291 to your own experiment. To prepare, you will create an outline of your experimental plan, focusing on the statistical framework of your design.
+
 # Experimental plan template
 
 Now that you have been developing a research question over the last few months, the next step is to design a set of experiments that will specifically test your research aims.
 
 We are often focused on the “cookbook” aspect of experiments – the protocols and steps required to conduct each experiment. However, it’s critical to spend time designing your overall experimental approach and the finer details to ensure that your research will produce robust data that can be clearly analysed without bias. When we test specific questions, we want to avoid statistical issues such as “noise” and "confounding" factors.
 
-Terry Neeman will be delivering a workshop to help you strengthen your experimental plan – both in terms of your proposed design, and to help you more clearly and accurately explain the rationale and set-up of your experiments. This workshop will help you apply the principles taught in BIOL8291 to your own experiment. To prepare, you will create an outline of your experimental plan, focusing on the statistical framework of your design.
+Terry Neeman will be delivering a workshop to help you strengthen your experimental plan
+
+– both in terms of your proposed design, and to help you more clearly and accurately explain the rationale and set-up of your experiments. 
+
+
 
 Below is an outline of questions for you to answer/justify for each part of your experimental plan. You will also need to draw two figures (digital drawings preferred) for each aim that show:
 
@@ -38,12 +44,47 @@ The template is laid out below as follows:
 For each experiment explain the overall experimental approach (1-3 sentences + overview diagram) list:
 
 1) Response/Outcome measure for the experiment;
+
+```{r}
+#input question here
+```
+
 2) The experimental factor(s) of interest;
+
+```{r}
+#input question here
+```
+
 3) The experimental conditions (groups for comparisons);
+
+```{r}
+#input question here
+```
+
 4) The number of replicates/sample size for each condition;
+
+```{r}
+#input question here
+```
+
 5) The experimental control(s);
+
+```{r}
+#input question here
+```
+
 6) Are their any potentially confounding factors (“nuisance factors”)? 
+
+```{r}
+#input question here
+```
+
 7) Briefly explain how they will be tracked/or mitigated.
+
+```{r}
+#input question here
+```
+
 
 Briefly explain the design of the experiment and provide a diagram that shows a “snap shot” of the experimental set-up (e.g., how all the plants under different experimental conditions will be arranged, all the plates in the lab, a flow chart of computational steps, etc.). Make sure to consider and include relevant design aspects like blocking, randomisation, as well as to clearly indicate treatments, replicate numbers, and controls.
 

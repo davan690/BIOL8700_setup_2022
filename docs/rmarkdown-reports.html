@@ -190,14 +190,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number"> 4</span> RMarkdown reports<a href="rmarkdown-reports.html#rmarkdown-reports" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>We should all know what these are and how to render/generate a report or document in RMarkdown.</p>
 <p>The next we will produce a RMarkdown document for the question we have been working on ready to add data and other sampling design information.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="rmarkdown-reports.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#general packages used</span></span>
-<span id="cb15-2"><a href="rmarkdown-reports.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="rmarkdown-reports.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#general packages used</span></span>
+<span id="cb22-2"><a href="rmarkdown-reports.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <p>What does this tell us about how RProjects and other funky things work?</p>
 <ol start="3" style="list-style-type: decimal">
 <li>Data import</li>
 </ol>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="rmarkdown-reports.html#cb16-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/Analysis_ardMods.csv&quot;</span>)</span>
-<span id="cb16-2"><a href="rmarkdown-reports.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(dat)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="rmarkdown-reports.html#cb23-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/Analysis_ardMods.csv&quot;</span>)</span>
+<span id="cb23-2"><a href="rmarkdown-reports.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(dat)</span></code></pre></div>
 <pre><code>## Rows: 380
 ## Columns: 35
 ## $ Well                   &lt;chr&gt; &quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;, &quot;1~
@@ -235,7 +235,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $ NOISE                  &lt;chr&gt; &quot;N&quot;, &quot;N&quot;, &quot;N&quot;, &quot;N&quot;, &quot;N&quot;, &quot;N&quot;, &quot;N&quot;, &quot;N&quot;, &quot;N&quot;, &quot;N~
 ## $ NOAMP                  &lt;chr&gt; &quot;N&quot;, &quot;N&quot;, &quot;N&quot;, &quot;N&quot;, &quot;N&quot;, &quot;N&quot;, &quot;N&quot;, &quot;N&quot;, &quot;N&quot;, &quot;N~
 ## $ THOLDFAIL              &lt;chr&gt; &quot;N&quot;, &quot;N&quot;, &quot;N&quot;, &quot;N&quot;, &quot;N&quot;, &quot;N&quot;, &quot;N&quot;, &quot;N&quot;, &quot;N&quot;, &quot;N~</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="rmarkdown-reports.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">variable.names</span>(dat)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="rmarkdown-reports.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">variable.names</span>(dat)</span></code></pre></div>
 <pre><code>##  [1] &quot;Well&quot;                   &quot;Well.Position&quot;          &quot;Omit&quot;                  
 ##  [4] &quot;Sample.Name&quot;            &quot;Delta.Ct.SE&quot;            &quot;Target.Name&quot;           
 ##  [7] &quot;Task&quot;                   &quot;Reporter&quot;               &quot;Quencher&quot;              
@@ -248,18 +248,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [28] &quot;Amp.Score&quot;              &quot;Tm3&quot;                    &quot;Cq.Conf&quot;               
 ## [31] &quot;MTP&quot;                    &quot;EXPFAIL&quot;                &quot;NOISE&quot;                 
 ## [34] &quot;NOAMP&quot;                  &quot;THOLDFAIL&quot;</code></pre>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="rmarkdown-reports.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(dat<span class="sc">$</span>Well.Position))</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="rmarkdown-reports.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(dat<span class="sc">$</span>Well.Position))</span></code></pre></div>
 <pre><code>## [1] 380</code></pre>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="rmarkdown-reports.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># outcome &lt;- dat$</span></span>
-<span id="cb22-2"><a href="rmarkdown-reports.html#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-3"><a href="rmarkdown-reports.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(dat<span class="sc">$</span>Omit)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="rmarkdown-reports.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># outcome &lt;- dat$</span></span>
+<span id="cb29-2"><a href="rmarkdown-reports.html#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="rmarkdown-reports.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(dat<span class="sc">$</span>Omit)</span></code></pre></div>
 <pre><code>## 
 ##       false 
 ##     4   376</code></pre>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="rmarkdown-reports.html#cb24-1" aria-hidden="true" tabindex="-1"></a>removedData <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span></span>
-<span id="cb24-2"><a href="rmarkdown-reports.html#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Omit <span class="sc">!=</span> <span class="st">&quot;false&quot;</span>)</span>
-<span id="cb24-3"><a href="rmarkdown-reports.html#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-4"><a href="rmarkdown-reports.html#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(removedData)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="rmarkdown-reports.html#cb31-1" aria-hidden="true" tabindex="-1"></a>removedData <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span></span>
+<span id="cb31-2"><a href="rmarkdown-reports.html#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Omit <span class="sc">!=</span> <span class="st">&quot;false&quot;</span>)</span>
+<span id="cb31-3"><a href="rmarkdown-reports.html#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="rmarkdown-reports.html#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(removedData)</span></code></pre></div>
 <pre><code>##                          Well Well.Position Omit Sample.Name Delta.Ct.SE
 ## 1               Analysis Type    Singleplex                           NA
 ## 2          Endogenous Control         Gapdh                           NA
@@ -288,31 +288,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="4" style="list-style-type: decimal">
 <li>Data visualisation</li>
 </ol>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="rmarkdown-reports.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># table(dat$Well.Position)</span></span>
-<span id="cb26-2"><a href="rmarkdown-reports.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(dat<span class="sc">$</span>Delta.Ct.Mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="rmarkdown-reports.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># table(dat$Well.Position)</span></span>
+<span id="cb33-2"><a href="rmarkdown-reports.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(dat<span class="sc">$</span>Delta.Ct.Mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 13.08628</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="rmarkdown-reports.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(dat<span class="sc">$</span>Delta.Ct.Mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="rmarkdown-reports.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(dat<span class="sc">$</span>Delta.Ct.Mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 5.507596</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="rmarkdown-reports.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(dat<span class="sc">$</span>Delta.Ct.Mean)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="rmarkdown-reports.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(dat<span class="sc">$</span>Delta.Ct.Mean)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <ol start="3" style="list-style-type: decimal">
 <li>Data import</li>
 </ol>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="rmarkdown-reports.html#cb31-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/Analysis_ardMods.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="rmarkdown-reports.html#cb38-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/Analysis_ardMods.csv&quot;</span>)</span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>Data visualisation</li>
 </ol>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="rmarkdown-reports.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># table(dat$Well.Position)</span></span>
-<span id="cb32-2"><a href="rmarkdown-reports.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(dat<span class="sc">$</span>Delta.Ct.Mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="rmarkdown-reports.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># table(dat$Well.Position)</span></span>
+<span id="cb39-2"><a href="rmarkdown-reports.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(dat<span class="sc">$</span>Delta.Ct.Mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 13.08628</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="rmarkdown-reports.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(dat<span class="sc">$</span>Delta.Ct.Mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="rmarkdown-reports.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(dat<span class="sc">$</span>Delta.Ct.Mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 5.507596</code></pre>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="rmarkdown-reports.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(dat<span class="sc">$</span>Delta.Ct.Mean)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="rmarkdown-reports.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(dat<span class="sc">$</span>Delta.Ct.Mean)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 <ol start="5" style="list-style-type: decimal">
 <li>Tidyverse approach</li>
 </ol>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="rmarkdown-reports.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">variable.names</span>(dat)</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="rmarkdown-reports.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">variable.names</span>(dat)</span></code></pre></div>
 <pre><code>##  [1] &quot;Well&quot;                   &quot;Well.Position&quot;          &quot;Omit&quot;                  
 ##  [4] &quot;Sample.Name&quot;            &quot;Delta.Ct.SE&quot;            &quot;Target.Name&quot;           
 ##  [7] &quot;Task&quot;                   &quot;Reporter&quot;               &quot;Quencher&quot;              
@@ -325,24 +325,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [28] &quot;Amp.Score&quot;              &quot;Tm3&quot;                    &quot;Cq.Conf&quot;               
 ## [31] &quot;MTP&quot;                    &quot;EXPFAIL&quot;                &quot;NOISE&quot;                 
 ## [34] &quot;NOAMP&quot;                  &quot;THOLDFAIL&quot;</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="rmarkdown-reports.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">#sample name</span></span>
-<span id="cb39-2"><a href="rmarkdown-reports.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="co"># table(dat$Sample.Name)</span></span>
-<span id="cb39-3"><a href="rmarkdown-reports.html#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(dat<span class="sc">$</span>Target.Name)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="rmarkdown-reports.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co">#sample name</span></span>
+<span id="cb46-2"><a href="rmarkdown-reports.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co"># table(dat$Sample.Name)</span></span>
+<span id="cb46-3"><a href="rmarkdown-reports.html#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(dat<span class="sc">$</span>Target.Name)</span></code></pre></div>
 <pre><code>## 
 ##                   16s B Fragilis        Bft      Gapdh   Il-12p40      Il-18 
 ##          4         47         47         47         47         47         47 
 ##       Il-6      Il1-b 
 ##         47         47</code></pre>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="rmarkdown-reports.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">as.numeric</span>(dat<span class="sc">$</span>CT), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="rmarkdown-reports.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">as.numeric</span>(dat<span class="sc">$</span>CT), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## Warning in mean(as.numeric(dat$CT), na.rm = TRUE): NAs introduced by coercion</code></pre>
 <pre><code>## [1] 24.87021</code></pre>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="rmarkdown-reports.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="do">##sumarise over Target Name and find n, mean, mode, median, sd, etc for each of the target names?</span></span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="rmarkdown-reports.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="do">##sumarise over Target Name and find n, mean, mode, median, sd, etc for each of the target names?</span></span></code></pre></div>
 <ol start="6" style="list-style-type: decimal">
 <li><p>Nicer plots using <code>ggplot</code></p></li>
 <li><p>Tidyverse approach</p></li>
 </ol>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="rmarkdown-reports.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co">#tidy data</span></span>
-<span id="cb45-2"><a href="rmarkdown-reports.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co">#tibble</span></span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="rmarkdown-reports.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co">#tidy data</span></span>
+<span id="cb52-2"><a href="rmarkdown-reports.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="co">#tibble</span></span></code></pre></div>
 <ol start="6" style="list-style-type: decimal">
 <li>ggplot</li>
 </ol>
@@ -351,8 +351,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Read a cool sampling design/issue paper</li>
 </ol>
 
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="rmarkdown-reports.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co">#general packages used</span></span>
-<span id="cb46-2"><a href="rmarkdown-reports.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="rmarkdown-reports.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co">#general packages used</span></span>
+<span id="cb53-2"><a href="rmarkdown-reports.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <p>We should all know what these are and how to render a report in RMarkdown. Next we will produce a RMarkdown document for the question we have been working on ready to add data and other sampling design information.</p>
 <ol style="list-style-type: decimal">
 <li>Outcome and predictor variables</li>

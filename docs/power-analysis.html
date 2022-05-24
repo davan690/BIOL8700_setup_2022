@@ -190,8 +190,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number"> 5</span> Power analysis<a href="power-analysis.html#power-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Watch this short (ish video) as a summary of what you should understand so far.
 What does this tell us about how RProjects and other funky things work?</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="power-analysis.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stats)</span>
-<span id="cb47-2"><a href="power-analysis.html#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">power.anova.test</span>(<span class="at">groups =</span> <span class="dv">4</span>, <span class="at">n =</span> <span class="dv">5</span>, <span class="at">between.var =</span> <span class="dv">1</span>, <span class="at">within.var =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="power-analysis.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stats)</span>
+<span id="cb54-2"><a href="power-analysis.html#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">power.anova.test</span>(<span class="at">groups =</span> <span class="dv">4</span>, <span class="at">n =</span> <span class="dv">5</span>, <span class="at">between.var =</span> <span class="dv">1</span>, <span class="at">within.var =</span> <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## 
 ##      Balanced one-way analysis of variance power calculation 
 ## 
@@ -203,10 +203,10 @@ What does this tell us about how RProjects and other funky things work?</p>
 ##           power = 0.3535594
 ## 
 ## NOTE: n is number in each group</code></pre>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="power-analysis.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Power = 0.3535594</span></span>
-<span id="cb49-2"><a href="power-analysis.html#cb49-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-3"><a href="power-analysis.html#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="fu">power.anova.test</span>(<span class="at">groups =</span> <span class="dv">4</span>, <span class="at">between.var =</span> <span class="dv">1</span>, <span class="at">within.var =</span> <span class="dv">3</span>,</span>
-<span id="cb49-4"><a href="power-analysis.html#cb49-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">power =</span> .<span class="dv">80</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="power-analysis.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Power = 0.3535594</span></span>
+<span id="cb56-2"><a href="power-analysis.html#cb56-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-3"><a href="power-analysis.html#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="fu">power.anova.test</span>(<span class="at">groups =</span> <span class="dv">4</span>, <span class="at">between.var =</span> <span class="dv">1</span>, <span class="at">within.var =</span> <span class="dv">3</span>,</span>
+<span id="cb56-4"><a href="power-analysis.html#cb56-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">power =</span> .<span class="dv">80</span>)</span></code></pre></div>
 <pre><code>## 
 ##      Balanced one-way analysis of variance power calculation 
 ## 
@@ -218,13 +218,13 @@ What does this tell us about how RProjects and other funky things work?</p>
 ##           power = 0.8
 ## 
 ## NOTE: n is number in each group</code></pre>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="power-analysis.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># n = 11.92613</span></span>
-<span id="cb51-2"><a href="power-analysis.html#cb51-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-3"><a href="power-analysis.html#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Assume we have prior knowledge of the group means:</span></span>
-<span id="cb51-4"><a href="power-analysis.html#cb51-4" aria-hidden="true" tabindex="-1"></a>groupmeans <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">120</span>, <span class="dv">130</span>, <span class="dv">140</span>, <span class="dv">150</span>)</span>
-<span id="cb51-5"><a href="power-analysis.html#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="fu">power.anova.test</span>(<span class="at">groups =</span> <span class="fu">length</span>(groupmeans),</span>
-<span id="cb51-6"><a href="power-analysis.html#cb51-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">between.var =</span> <span class="fu">var</span>(groupmeans),</span>
-<span id="cb51-7"><a href="power-analysis.html#cb51-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">within.var =</span> <span class="dv">500</span>, <span class="at">power =</span> .<span class="dv">90</span>) <span class="co"># n = 15.18834</span></span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="power-analysis.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># n = 11.92613</span></span>
+<span id="cb58-2"><a href="power-analysis.html#cb58-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-3"><a href="power-analysis.html#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Assume we have prior knowledge of the group means:</span></span>
+<span id="cb58-4"><a href="power-analysis.html#cb58-4" aria-hidden="true" tabindex="-1"></a>groupmeans <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">120</span>, <span class="dv">130</span>, <span class="dv">140</span>, <span class="dv">150</span>)</span>
+<span id="cb58-5"><a href="power-analysis.html#cb58-5" aria-hidden="true" tabindex="-1"></a><span class="fu">power.anova.test</span>(<span class="at">groups =</span> <span class="fu">length</span>(groupmeans),</span>
+<span id="cb58-6"><a href="power-analysis.html#cb58-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">between.var =</span> <span class="fu">var</span>(groupmeans),</span>
+<span id="cb58-7"><a href="power-analysis.html#cb58-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">within.var =</span> <span class="dv">500</span>, <span class="at">power =</span> .<span class="dv">90</span>) <span class="co"># n = 15.18834</span></span></code></pre></div>
 <pre><code>## 
 ##      Balanced one-way analysis of variance power calculation 
 ## 
@@ -238,25 +238,25 @@ What does this tell us about how RProjects and other funky things work?</p>
 ## NOTE: n is number in each group</code></pre>
 <!-- Watch this short (ish video) as a summary of what you should understand so far. -->
 <p>I can not find the additional code from last year but this is a slight variation on the project.</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="power-analysis.html#cb53-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_app</span>(<span class="st">&quot;https://mathiasharrer.shinyapps.io/power_calculator_meta_analysis/&quot;</span>, <span class="at">height =</span> <span class="st">&quot;1500px&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="power-analysis.html#cb60-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_app</span>(<span class="st">&quot;https://mathiasharrer.shinyapps.io/power_calculator_meta_analysis/&quot;</span>, <span class="at">height =</span> <span class="st">&quot;1500px&quot;</span>) </span></code></pre></div>
 <iframe src="https://mathiasharrer.shinyapps.io/power_calculator_meta_analysis/?showcase=0" width="672" height="1500px" data-external="1">
 </iframe>
 <div id="meta-analysis-power-test" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> Meta-analysis power test<a href="power-analysis.html#meta-analysis-power-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="power-analysis.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The included numbers will per calculate power for a meta-analysis to detect a summary effect size of 0.2, with an average sample size per group of = 50, a total of 15 effect sizes, and moderate heterogeneity.</span></span>
-<span id="cb54-2"><a href="power-analysis.html#cb54-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb54-3"><a href="power-analysis.html#cb54-3" aria-hidden="true" tabindex="-1"></a>es <span class="ot">&lt;-</span> <span class="fl">0.2</span> <span class="co"># Enter your summary effect size</span></span>
-<span id="cb54-4"><a href="power-analysis.html#cb54-4" aria-hidden="true" tabindex="-1"></a>as <span class="ot">&lt;-</span> <span class="dv">50</span>  <span class="co"># Average per number per group</span></span>
-<span id="cb54-5"><a href="power-analysis.html#cb54-5" aria-hidden="true" tabindex="-1"></a>mk <span class="ot">&lt;-</span> <span class="dv">15</span>  <span class="co"># Number of effect sizes</span></span>
-<span id="cb54-6"><a href="power-analysis.html#cb54-6" aria-hidden="true" tabindex="-1"></a>hg <span class="ot">&lt;-</span> <span class="dv">1</span>   <span class="co"># Heterogeniety (&quot;.33&quot; for small, &quot;1&quot; for moderate, &amp; &quot;3&quot; for large)</span></span>
-<span id="cb54-7"><a href="power-analysis.html#cb54-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb54-8"><a href="power-analysis.html#cb54-8" aria-hidden="true" tabindex="-1"></a>eq1 <span class="ot">&lt;-</span> ((as<span class="sc">+</span>as)<span class="sc">/</span>((as)<span class="sc">*</span>(as))) <span class="sc">+</span> ((es<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>(as<span class="sc">+</span>as)))</span>
-<span id="cb54-9"><a href="power-analysis.html#cb54-9" aria-hidden="true" tabindex="-1"></a>eq2 <span class="ot">&lt;-</span> hg<span class="sc">*</span>(eq1)</span>
-<span id="cb54-10"><a href="power-analysis.html#cb54-10" aria-hidden="true" tabindex="-1"></a>eq3 <span class="ot">&lt;-</span> eq2<span class="sc">+</span>eq1</span>
-<span id="cb54-11"><a href="power-analysis.html#cb54-11" aria-hidden="true" tabindex="-1"></a>eq4 <span class="ot">&lt;-</span> eq3<span class="sc">/</span>mk</span>
-<span id="cb54-12"><a href="power-analysis.html#cb54-12" aria-hidden="true" tabindex="-1"></a>eq5 <span class="ot">&lt;-</span> (es<span class="sc">/</span><span class="fu">sqrt</span>(eq4))</span>
-<span id="cb54-13"><a href="power-analysis.html#cb54-13" aria-hidden="true" tabindex="-1"></a>Power <span class="ot">&lt;-</span> (<span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(<span class="fl">1.96</span><span class="sc">-</span>eq5)) <span class="co"># Two-tailed</span></span>
-<span id="cb54-14"><a href="power-analysis.html#cb54-14" aria-hidden="true" tabindex="-1"></a>Power</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="power-analysis.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The included numbers will per calculate power for a meta-analysis to detect a summary effect size of 0.2, with an average sample size per group of = 50, a total of 15 effect sizes, and moderate heterogeneity.</span></span>
+<span id="cb61-2"><a href="power-analysis.html#cb61-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-3"><a href="power-analysis.html#cb61-3" aria-hidden="true" tabindex="-1"></a>es <span class="ot">&lt;-</span> <span class="fl">0.2</span> <span class="co"># Enter your summary effect size</span></span>
+<span id="cb61-4"><a href="power-analysis.html#cb61-4" aria-hidden="true" tabindex="-1"></a>as <span class="ot">&lt;-</span> <span class="dv">50</span>  <span class="co"># Average per number per group</span></span>
+<span id="cb61-5"><a href="power-analysis.html#cb61-5" aria-hidden="true" tabindex="-1"></a>mk <span class="ot">&lt;-</span> <span class="dv">15</span>  <span class="co"># Number of effect sizes</span></span>
+<span id="cb61-6"><a href="power-analysis.html#cb61-6" aria-hidden="true" tabindex="-1"></a>hg <span class="ot">&lt;-</span> <span class="dv">1</span>   <span class="co"># Heterogeniety (&quot;.33&quot; for small, &quot;1&quot; for moderate, &amp; &quot;3&quot; for large)</span></span>
+<span id="cb61-7"><a href="power-analysis.html#cb61-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-8"><a href="power-analysis.html#cb61-8" aria-hidden="true" tabindex="-1"></a>eq1 <span class="ot">&lt;-</span> ((as<span class="sc">+</span>as)<span class="sc">/</span>((as)<span class="sc">*</span>(as))) <span class="sc">+</span> ((es<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>(as<span class="sc">+</span>as)))</span>
+<span id="cb61-9"><a href="power-analysis.html#cb61-9" aria-hidden="true" tabindex="-1"></a>eq2 <span class="ot">&lt;-</span> hg<span class="sc">*</span>(eq1)</span>
+<span id="cb61-10"><a href="power-analysis.html#cb61-10" aria-hidden="true" tabindex="-1"></a>eq3 <span class="ot">&lt;-</span> eq2<span class="sc">+</span>eq1</span>
+<span id="cb61-11"><a href="power-analysis.html#cb61-11" aria-hidden="true" tabindex="-1"></a>eq4 <span class="ot">&lt;-</span> eq3<span class="sc">/</span>mk</span>
+<span id="cb61-12"><a href="power-analysis.html#cb61-12" aria-hidden="true" tabindex="-1"></a>eq5 <span class="ot">&lt;-</span> (es<span class="sc">/</span><span class="fu">sqrt</span>(eq4))</span>
+<span id="cb61-13"><a href="power-analysis.html#cb61-13" aria-hidden="true" tabindex="-1"></a>Power <span class="ot">&lt;-</span> (<span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(<span class="fl">1.96</span><span class="sc">-</span>eq5)) <span class="co"># Two-tailed</span></span>
+<span id="cb61-14"><a href="power-analysis.html#cb61-14" aria-hidden="true" tabindex="-1"></a>Power</span></code></pre></div>
 <pre><code>## [1] 0.7798811</code></pre>
 <div id="next-steps" class="section level4 hasAnchor" number="5.1.0.1">
 <h4><span class="header-section-number">5.1.0.1</span> Next steps<a href="power-analysis.html#next-steps" class="anchor-section" aria-label="Anchor link to header"></a></h4>
