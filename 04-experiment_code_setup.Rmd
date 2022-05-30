@@ -2,7 +2,7 @@
 
 As we have discussed there will and are a collection of attributes that your research will have without/before collecting data. These things are important for prelimary analysis and things like power analysis. This chapter helps create descriptive statistics for our research.
 
-We should all know what these are and how to render/generate a  report or document in RMarkdown. 
+We should all know what these are and how to render/generate a report or document in RMarkdown.
 
 The next we will produce a RMarkdown document for the question we have been working on ready to add data and other sampling design information.
 
@@ -16,10 +16,12 @@ library(tidyverse)
 From the model above it is possible to generate a dataset to produce a model fit and outcomes generated.
 
 ```{r}
+#using here function with correct .RProject file
+# function could check this?
 datRawIn <- read.csv(here::here("notes2022/data/Analysis_ardMods.csv"))
 ```
 
-Select variables from dataset and check the numerical structure is correct in R (numerical, factor etc).
+Select variables from data set and check the numerical structure is correct in R (numerical, factor etc).
 
 ```{r eval = FALSE}
 # 3what response
@@ -37,7 +39,7 @@ responseACT2 <- c(datRawIn$EQ.Ct.Mean)
 
 What does this tell us about how RProjects and other funky things work?
 
-3. Data import
+3.  Data import
 
 ```{r}
 # dat <- read.csv("data/Analysis_ardMods.csv")
@@ -107,16 +109,13 @@ p1
 
 ```
 
-
-
-3. Data import
+3.  Data import
 
 ```{r}
 # dat <- read.csv("data/Analysis_ardMods.csv")
 ```
 
-
-4. Data visualisation
+4.  Data visualisation
 
 ```{r}
 # table(dat$Well.Position)
@@ -126,8 +125,7 @@ p1
 # hist(dat$Delta.Ct.Mean)
 ```
 
-
-5. Tidyverse approach
+5.  Tidyverse approach
 
 ```{r}
 # variable.names(dat)
@@ -141,10 +139,9 @@ p1
 
 ```
 
-6. Nicer plots using `ggplot`
+6.  Nicer plots using `ggplot`
 
-
-5. Tidyverse approach
+7.  Tidyverse approach
 
 ```{r}
 #tidy data
@@ -152,18 +149,14 @@ p1
 
 ```
 
-
-6.    ggplot
+6.  ggplot
 
 Much easier to work this this and tidyverse
 
-
-7. Read a cool sampling design/issue paper
+7.  Read a cool sampling design/issue paper
 
 #### Reporting
 
 ```{r}
 
 ```
-
-
